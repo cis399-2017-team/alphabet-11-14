@@ -1,0 +1,2 @@
+1. Private IP: 10.0.6.22
+2. Go to the EC2 Console. Select the target instance and IPv4 Public IP is the second item in the right column.
