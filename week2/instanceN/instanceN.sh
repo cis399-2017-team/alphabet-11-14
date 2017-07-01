@@ -1,3 +1,5 @@
+#1 Private IP: 10.0.6.22
+#2 Go to the EC2 Console. Select the target instance and IPv4 Public IP is the second item in the right column.
 #3 Provide the output of a command showing how much disk space one of your instances has.
 echo "df"
 echo "df -h"
@@ -20,6 +22,7 @@ echo "netstat -a"
 echo "dpkg --list"
 #10 Provide transcripts showing the output of the commands you use to update your package database and upgrade packages on each of your instances.
 #update package dependencies
-echo "sudo apt-get update"
+#echo "sudo apt-get update"
 #get updated packages
-echo "sudo apt-get upgrade"
+#echo "sudo apt-get upgrade"
+echo "exit"
