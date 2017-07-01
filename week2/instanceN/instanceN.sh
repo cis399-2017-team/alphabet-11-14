@@ -22,7 +22,7 @@ echo "netstat -a"
 echo "dpkg --list"
 #10 Provide transcripts showing the output of the commands you use to update your package database and upgrade packages on each of your instances.
 #update package dependencies
-#echo "sudo apt-get update"
+echo "sudo apt-get update"
 #get updated packages
-#echo "sudo apt-get upgrade"
+echo "sudo apt-get upgrade -y"
 echo "exit"
