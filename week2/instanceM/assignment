@@ -1,0 +1,675 @@
+Assignment Week 2:
+
+1)
+Name: alphabet[11]
+ID: i-09be6e7ee2d2d5c7e
+Private IP: 10.0.6.128
+
+Name: alphabet[12]
+ID: i-09f0627f9c4e501ac
+Private IP: 10.0.6.17
+
+Name: alphabet[13]
+ID: i-0c29695312c8615c2
+Private IP: 10.0.6.22
+
+
+2)
+- Login to AWS console at https://uo-cis-sysadm-class.signin.aws.amazon.com/console
+- Click Services dropdown in top left of screen
+- Click EC2
+- Click Live Instances
+- Select your instance name and scroll left to IPv4 Public IP column, or look in bottom "Description" view pane and find IPv4 Public IP option
+
+3)
+ubuntu@ip-10-0-6-17:~$ df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+udev              241548       0    241548   0% /dev
+tmpfs              49860    1824     48036   4% /run
+/dev/xvda1       8065444 1028068   7020992  13% /
+tmpfs             249288       0    249288   0% /dev/shm
+tmpfs               5120       0      5120   0% /run/lock
+tmpfs             249288       0    249288   0% /sys/fs/cgroup
+tmpfs              49860       0     49860   0% /run/user/1000
+
+4)
+ubuntu@ip-10-0-6-17:~$ free -m
+              total        used        free      shared  buff/cache   available
+Mem:            486          40         107           1         339         415
+
+5)
+ubuntu@ip-10-0-6-17:/$ top
+
+top - 03:24:24 up  1:00,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks: 111 total,   1 running, 110 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.3 us,  0.2 sy,  0.0 ni, 99.3 id,  0.1 wa,  0.0 hi,  0.0 si,  0.1 st
+KiB Mem :   498580 total,   109248 free,    41480 used,   347852 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.   424304 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND                                                                                       
+    1 root      20   0   39688   5708   4008 S  0.0  1.1   0:02.01 systemd                                                                                       
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd                                                                                      
+    3 root      20   0       0      0      0 S  0.0  0.0   0:00.01 ksoftirqd/0                                                                                   
+    5 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kworker/0:0H                                                                                  
+    7 root      20   0       0      0      0 S  0.0  0.0   0:00.04 rcu_sched                                                                                     
+    8 root      20   0       0      0      0 S  0.0  0.0   0:00.00 rcu_bh                                                                                        
+    9 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0                                                                                   
+   10 root      rt   0       0      0      0 S  0.0  0.0   0:00.01 watchdog/0                                                                                    
+   11 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs                                                                                     
+   12 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 netns                                                                                         
+   13 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 perf                                                                                          
+   14 root      20   0       0      0      0 S  0.0  0.0   0:00.00 xenwatch                                                                                      
+   15 root      20   0       0      0      0 S  0.0  0.0   0:00.00 xenbus                                                                                        
+   17 root      20   0       0      0      0 S  0.0  0.0   0:00.00 khungtaskd                                                                                    
+   18 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 writeback                                                                                     
+   19 root      25   5       0      0      0 S  0.0  0.0   0:00.00 ksmd       
+
+6)
+ubuntu@ip-10-0-6-17:/$ ip addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 0a:35:56:ef:df:b0 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.6.17/24 brd 10.0.6.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::835:56ff:feef:dfb0/64 scope link 
+       valid_lft forever preferred_lft forever
+
+ubuntu@ip-10-0-6-17:/$ ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 0a:35:56:ef:df:b0  
+          inet addr:10.0.6.17  Bcast:10.0.6.255  Mask:255.255.255.0
+          inet6 addr: fe80::835:56ff:feef:dfb0/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:9001  Metric:1
+          RX packets:11202 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:8107 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:12470769 (12.4 MB)  TX bytes:1613235 (1.6 MB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:160 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:160 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1 
+          RX bytes:11840 (11.8 KB)  TX bytes:11840 (11.8 KB)
+
+
+7)
+ubuntu@ip-10-0-6-17:/$ sudo route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.6.1        0.0.0.0         UG    0      0        0 eth0
+10.0.6.0        0.0.0.0         255.255.255.0   U     0      0        0 eth0
+
+8)
+ubuntu@ip-10-0-6-17:/$ ss -l
+Netid State      Recv-Q Send-Q                               Local Address:Port                                                Peer Address:Port                
+nl    UNCONN     0      0                                             rtnl:kernel                                                          *                     
+nl    UNCONN     768    0                                          tcpdiag:kernel                                                          *                     
+nl    UNCONN     4352   0                                          tcpdiag:ss/2049                                                         *                     
+nl    UNCONN     0      0                                          selinux:kernel                                                          *                     
+nl    UNCONN     0      0                                            iscsi:kernel                                                          *                     
+nl    UNCONN     0      0                                            iscsi:iscsid/1065                                                     *                     
+nl    UNCONN     0      0                                            iscsi:iscsid/1065                                                     *                     
+nl    UNCONN     0      0                                            audit:-1465321927                                                     *                     
+nl    UNCONN     0      0                                            audit:systemd/1                                                       *                     
+nl    UNCONN     0      0                                            audit:kernel                                                          *                     
+nl    UNCONN     0      0                                            audit:systemd/1                                                       *                     
+nl    UNCONN     0      0                                        fiblookup:kernel                                                          *                     
+nl    UNCONN     0      0                                        connector:kernel                                                          *                     
+nl    UNCONN     0      0                                           uevent:systemd-logind/1085                                             *                     
+nl    UNCONN     0      0                                           uevent:-227649998                                                      *                     
+nl    UNCONN     0      0                                           uevent:-1546187057                                                     *                     
+nl    UNCONN     0      0                                           uevent:kernel                                                          *                     
+nl    UNCONN     0      0                                           uevent:systemd/1429                                                    *                     
+nl    UNCONN     0      0                                           uevent:-1503544455                                                     *                     
+nl    UNCONN     0      0                                           uevent:-1820114586                                                     *                     
+nl    UNCONN     0      0                                           uevent:systemd/1                                                       *                     
+nl    UNCONN     0      0                                           uevent:systemd/1429                                                    *                     
+nl    UNCONN     0      0                                           uevent:-1546187057                                                     *                     
+nl    UNCONN     0      0                                           uevent:-1503544455                                                     *                     
+nl    UNCONN     0      0                                           uevent:-1820114586                                                     *                     
+nl    UNCONN     0      0                                           uevent:systemd-logind/1085                                             *                     
+nl    UNCONN     0      0                                           uevent:-227649998                                                      *                     
+nl    UNCONN     0      0                                           uevent:systemd/1                                                       *                     
+nl    UNCONN     0      0                                             genl:acpid/1075                                                      *                     
+nl    UNCONN     0      0                                             genl:kernel                                                          *                     
+nl    UNCONN     0      0                                             genl:acpid/1075                                                      *                     
+nl    UNCONN     0      0                                       scsi-trans:kernel                                                          *                     
+nl    UNCONN     0      0                                             rdma:kernel                                                          *                     
+p_raw UNCONN     0      0                                                *:eth0                                                            *                     
+u_dgr UNCONN     0      0                              /run/systemd/notify 8745                                                           * 0                    
+u_str LISTEN     0      128                           /run/systemd/private 8746                                                           * 0                    
+u_dgr UNCONN     0      0                    /run/user/1000/systemd/notify 16776                                                          * 0                    
+u_str LISTEN     0      128                    /run/systemd/journal/stdout 8754                                                           * 0                    
+u_str LISTEN     0      128                 /run/user/1000/systemd/private 16777                                                          * 0                    
+u_seq LISTEN     0      128                              /run/udev/control 8887                                                           * 0                    
+u_dgr UNCONN     0      0                      /run/systemd/journal/socket 8755                                                           * 0                    
+u_str LISTEN     0      128                        /run/lvm/lvmetad.socket 8757                                                           * 0                    
+u_str LISTEN     0      128                       /run/lvm/lvmpolld.socket 8974                                                           * 0                    
+u_dgr UNCONN     0      0                      /run/systemd/journal/syslog 9156                                                           * 0                    
+u_dgr UNCONN     0      0                     /run/systemd/journal/dev-log 9203                                                           * 0                    
+u_str LISTEN     0      128                /var/run/dbus/system_bus_socket 12922                                                          * 0                    
+u_str LISTEN     0      128                              /run/snapd.socket 12935                                                          * 0                    
+u_str LISTEN     0      128                         /run/snapd-snap.socket 12936                                                          * 0                    
+u_str LISTEN     0      128                             /run/uuidd/request 12937                                                          * 0                    
+u_str LISTEN     0      128                              /run/acpid.socket 12938                                                          * 0                    
+u_str LISTEN     0      32                    @ISCSIADM_ABSTRACT_NAMESPACE 13028                                                          * 0                    
+u_str LISTEN     0      128                       /var/lib/lxd/unix.socket 12939                                                          * 0                    
+u_dgr UNCONN     0      0                                                * 10966                                                          * 10965                
+u_dgr UNCONN     0      0                                                * 10968                                                          * 10967                
+u_dgr UNCONN     0      0                                                * 10958                                                          * 8755                 
+u_dgr UNCONN     0      0                                                * 14891                                                          * 9203                 
+u_dgr UNCONN     0      0                                                * 10967                                                          * 10968                
+u_dgr UNCONN     0      0                                                * 13590                                                          * 9203                 
+u_dgr UNCONN     0      0                                                * 13033                                                          * 9203                 
+u_dgr UNCONN     0      0                                                * 9298                                                           * 8755                 
+u_dgr UNCONN     0      0                                                * 10965                                                          * 10966                
+u_dgr UNCONN     0      0                                                * 13561                                                          * 8755                 
+u_dgr UNCONN     0      0                                                * 12145                                                          * 9203                 
+u_dgr UNCONN     0      0                                                * 10161                                                          * 10160                
+u_dgr UNCONN     0      0                                                * 10144                                                          * 8755                 
+u_dgr UNCONN     0      0                                                * 10160                                                          * 10161                
+u_dgr UNCONN     0      0                                                * 16743                                                          * 9203                 
+u_dgr UNCONN     0      0                                                * 13303                                                          * 9203                 
+u_dgr UNCONN     0      0                                                * 16664                                                          * 9203                 
+u_dgr UNCONN     0      0                                                * 16746                                                          * 8755                 
+u_dgr UNCONN     0      0                                                * 13027                                                          * 9203                 
+u_dgr UNCONN     0      0                                                * 9255                                                           * 8745                 
+udp   UNCONN     0      0                                                *:bootpc                                                         *:*                    
+tcp   LISTEN     0      128                                              *:ssh                                                            *:*                    
+tcp   LISTEN     0      128                                             :::ssh                                                           :::*                    
+
+9)
+ubuntu@ip-10-0-6-17:/$ apt list --installed
+Listing... Done
+accountsservice/xenial-updates,now 0.6.40-2ubuntu11.3 amd64 [installed]
+acl/xenial,now 2.2.52-3 amd64 [installed]
+acpid/xenial,now 1:2.0.26-1ubuntu2 amd64 [installed]
+adduser/xenial,now 3.113+nmu3ubuntu4 all [installed]
+apparmor/xenial-updates,xenial-security,now 2.10.95-0ubuntu2.6 amd64 [installed]
+apport/xenial-updates,now 2.20.1-0ubuntu2.6 all [installed]
+apport-symptoms/xenial,now 0.20 all [installed]
+apt/xenial-updates,now 1.2.20 amd64 [installed]
+apt-transport-https/xenial-updates,now 1.2.20 amd64 [installed]
+apt-utils/xenial-updates,now 1.2.20 amd64 [installed]
+at/xenial,now 3.1.18-2ubuntu1 amd64 [installed]
+base-files/xenial-updates,now 9.4ubuntu4.4 amd64 [installed]
+base-passwd/xenial,now 3.5.39 amd64 [installed]
+bash/xenial-updates,xenial-security,now 4.3-14ubuntu1.2 amd64 [installed]
+bash-completion/xenial-updates,now 1:2.1-4.2ubuntu1.1 all [installed]
+bcache-tools/xenial,now 1.0.8-2 amd64 [installed]
+bind9-host/now 1:9.10.3.dfsg.P4-8ubuntu1.6 amd64 [installed,upgradable to: 1:9.10.3.dfsg.P4-8ubuntu1.7]
+bsdmainutils/xenial,now 9.0.6ubuntu3 amd64 [installed]
+bsdutils/now 1:2.27.1-6ubuntu3.2 amd64 [installed,upgradable to: 1:2.27.1-6ubuntu3.3]
+btrfs-tools/xenial,now 4.4-1 amd64 [installed,upgradable to: 4.4-1ubuntu1]
+busybox-initramfs/xenial,now 1:1.22.0-15ubuntu1 amd64 [installed]
+busybox-static/xenial,now 1:1.22.0-15ubuntu1 amd64 [installed]
+byobu/xenial,now 5.106-0ubuntu1 all [installed]
+bzip2/xenial,now 1.0.6-8 amd64 [installed]
+ca-certificates/xenial,now 20160104ubuntu1 all [installed]
+cloud-guest-utils/xenial,now 0.27-0ubuntu24 all [installed]
+cloud-init/now 0.7.9-113-g513e99e0-0ubuntu1~16.04.1 all [installed,upgradable to: 0.7.9-153-g16a7302f-0ubuntu1~16.04.2]
+cloud-initramfs-copymods/xenial-updates,now 0.27ubuntu1.4 all [installed]
+cloud-initramfs-dyn-netconf/xenial-updates,now 0.27ubuntu1.4 all [installed]
+command-not-found/xenial-updates,now 0.3ubuntu16.04.2 all [installed]
+command-not-found-data/xenial-updates,now 0.3ubuntu16.04.2 amd64 [installed]
+console-setup/xenial-updates,now 1.108ubuntu15.3 all [installed]
+console-setup-linux/xenial-updates,now 1.108ubuntu15.3 all [installed]
+coreutils/xenial,now 8.25-2ubuntu2 amd64 [installed]
+cpio/xenial,now 2.11+dfsg-5ubuntu1 amd64 [installed]
+cron/xenial,now 3.0pl1-128ubuntu2 amd64 [installed]
+cryptsetup/xenial,now 2:1.6.6-5ubuntu2 amd64 [installed]
+cryptsetup-bin/xenial,now 2:1.6.6-5ubuntu2 amd64 [installed]
+curl/xenial-updates,xenial-security,now 7.47.0-1ubuntu2.2 amd64 [installed]
+dash/xenial,now 0.5.8-2.1ubuntu2 amd64 [installed]
+dbus/xenial-updates,now 1.10.6-1ubuntu3.3 amd64 [installed]
+debconf/xenial,now 1.5.58ubuntu1 all [installed]
+debconf-i18n/xenial,now 1.5.58ubuntu1 all [installed]
+debianutils/xenial,now 4.7 amd64 [installed]
+dh-python/xenial-updates,now 2.20151103ubuntu1.1 all [installed]
+diffutils/xenial,now 1:3.3-3 amd64 [installed]
+distro-info-data/xenial-updates,xenial-security,now 0.28ubuntu0.3 all [installed]
+dmeventd/xenial,now 2:1.02.110-1ubuntu10 amd64 [installed]
+dmidecode/xenial-updates,now 3.0-2ubuntu0.1 amd64 [installed]
+dmsetup/xenial,now 2:1.02.110-1ubuntu10 amd64 [installed]
+dns-root-data/xenial,now 2015052300+h+1 all [installed]
+dnsmasq-base/xenial-updates,now 2.75-1ubuntu0.16.04.2 amd64 [installed]
+dnsutils/now 1:9.10.3.dfsg.P4-8ubuntu1.6 amd64 [installed,upgradable to: 1:9.10.3.dfsg.P4-8ubuntu1.7]
+dosfstools/xenial-updates,xenial-security,now 3.0.28-2ubuntu0.1 amd64 [installed]
+dpkg/xenial-updates,now 1.18.4ubuntu1.2 amd64 [installed]
+e2fslibs/xenial,now 1.42.13-1ubuntu1 amd64 [installed]
+e2fsprogs/xenial,now 1.42.13-1ubuntu1 amd64 [installed]
+eatmydata/xenial,now 105-3 all [installed]
+ed/xenial,now 1.10-2 amd64 [installed]
+eject/xenial-updates,xenial-security,now 2.1.5+deb1+cvs20081104-13.1ubuntu0.16.04.1 amd64 [installed]
+ethtool/xenial,now 1:4.5-1 amd64 [installed]
+file/xenial,now 1:5.25-2ubuntu1 amd64 [installed]
+findutils/xenial,now 4.6.0+git+20160126-2 amd64 [installed]
+fonts-ubuntu-font-family-console/xenial,now 1:0.83-0ubuntu2 all [installed]
+friendly-recovery/xenial,now 0.2.31 all [installed]
+ftp/xenial,now 0.17-33 amd64 [installed]
+fuse/xenial-updates,now 2.9.4-1ubuntu3.1 amd64 [installed]
+gawk/xenial,now 1:4.1.3+dfsg-0.1 amd64 [installed]
+gcc-5-base/xenial-updates,xenial-security,now 5.4.0-6ubuntu1~16.04.4 amd64 [installed]
+gcc-6-base/xenial,now 6.0.1-0ubuntu1 amd64 [installed]
+gdisk/xenial,now 1.0.1-1build1 amd64 [installed]
+geoip-database/xenial,now 20160408-1 all [installed]
+gettext-base/xenial,now 0.19.7-2ubuntu3 amd64 [installed]
+gir1.2-glib-2.0/xenial,now 1.46.0-3ubuntu1 amd64 [installed]
+git/xenial-updates,xenial-security,now 1:2.7.4-0ubuntu1.1 amd64 [installed]
+git-man/xenial-updates,xenial-security,now 1:2.7.4-0ubuntu1.1 all [installed]
+gnupg/xenial-updates,xenial-security,now 1.4.20-1ubuntu3.1 amd64 [installed]
+gpgv/xenial-updates,xenial-security,now 1.4.20-1ubuntu3.1 amd64 [installed]
+grep/xenial-updates,now 2.25-1~16.04.1 amd64 [installed]
+groff-base/xenial,now 1.22.3-7 amd64 [installed]
+grub-common/xenial-updates,now 2.02~beta2-36ubuntu3.11 amd64 [installed,automatic]
+grub-gfxpayload-lists/xenial,now 0.7 amd64 [installed,automatic]
+grub-legacy-ec2/now 0.7.9-113-g513e99e0-0ubuntu1~16.04.1 all [installed,upgradable to: 0.7.9-153-g16a7302f-0ubuntu1~16.04.2]
+grub-pc/xenial-updates,now 2.02~beta2-36ubuntu3.11 amd64 [installed,automatic]
+grub-pc-bin/xenial-updates,now 2.02~beta2-36ubuntu3.11 amd64 [installed,automatic]
+grub2-common/xenial-updates,now 2.02~beta2-36ubuntu3.11 amd64 [installed,automatic]
+gzip/xenial,now 1.6-4ubuntu1 amd64 [installed]
+hdparm/xenial,now 9.48+ds-1 amd64 [installed]
+hostname/xenial,now 3.16ubuntu2 amd64 [installed]
+ifenslave/xenial,now 2.7ubuntu1 all [installed]
+ifupdown/xenial-updates,now 0.8.10ubuntu1.2 amd64 [installed]
+info/xenial,now 6.1.0.dfsg.1-5 amd64 [installed]
+init/xenial-updates,now 1.29ubuntu4 amd64 [installed]
+init-system-helpers/xenial-updates,now 1.29ubuntu4 all [installed]
+initramfs-tools/xenial-updates,now 0.122ubuntu8.8 all [installed]
+initramfs-tools-bin/xenial-updates,now 0.122ubuntu8.8 amd64 [installed]
+initramfs-tools-core/xenial-updates,now 0.122ubuntu8.8 all [installed]
+initscripts/xenial,now 2.88dsf-59.3ubuntu2 amd64 [installed]
+insserv/xenial,now 1.14.0-5ubuntu3 amd64 [installed]
+install-info/xenial,now 6.1.0.dfsg.1-5 amd64 [installed]
+iproute2/xenial-updates,now 4.3.0-1ubuntu3.16.04.1 amd64 [installed]
+iptables/xenial,now 1.6.0-2ubuntu3 amd64 [installed]
+iputils-ping/xenial,now 3:20121221-5ubuntu2 amd64 [installed]
+iputils-tracepath/xenial,now 3:20121221-5ubuntu2 amd64 [installed]
+irqbalance/xenial,now 1.1.0-2ubuntu1 amd64 [installed]
+isc-dhcp-client/xenial-updates,now 4.3.3-5ubuntu12.7 amd64 [installed]
+isc-dhcp-common/xenial-updates,now 4.3.3-5ubuntu12.7 amd64 [installed]
+iso-codes/xenial,now 3.65-1 all [installed]
+kbd/xenial-updates,now 1.15.5-1ubuntu5 amd64 [installed]
+keyboard-configuration/xenial-updates,now 1.108ubuntu15.3 all [installed]
+klibc-utils/xenial-updates,now 2.0.4-8ubuntu1.16.04.3 amd64 [installed]
+kmod/xenial,now 22-1ubuntu4 amd64 [installed]
+krb5-locales/xenial-updates,now 1.13.2+dfsg-5ubuntu2 all [installed]
+language-selector-common/xenial-updates,now 0.165.4 all [installed]
+less/now 481-2.1ubuntu0.1 amd64 [installed,upgradable to: 481-2.1ubuntu0.2]
+libaccountsservice0/xenial-updates,now 0.6.40-2ubuntu11.3 amd64 [installed]
+libacl1/xenial,now 2.2.52-3 amd64 [installed]
+libapparmor-perl/xenial-updates,xenial-security,now 2.10.95-0ubuntu2.6 amd64 [installed]
+libapparmor1/xenial-updates,xenial-security,now 2.10.95-0ubuntu2.6 amd64 [installed]
+libapt-inst2.0/xenial-updates,now 1.2.20 amd64 [installed]
+libapt-pkg5.0/xenial-updates,now 1.2.20 amd64 [installed]
+libasn1-8-heimdal/xenial,now 1.7~git20150920+dfsg-4ubuntu1 amd64 [installed]
+libasprintf0v5/xenial,now 0.19.7-2ubuntu3 amd64 [installed]
+libatm1/xenial,now 1:2.5.1-1.5 amd64 [installed]
+libattr1/xenial,now 1:2.4.47-2 amd64 [installed]
+libaudit-common/xenial,now 1:2.4.5-1ubuntu2 all [installed]
+libaudit1/xenial,now 1:2.4.5-1ubuntu2 amd64 [installed]
+libbind9-140/now 1:9.10.3.dfsg.P4-8ubuntu1.6 amd64 [installed,upgradable to: 1:9.10.3.dfsg.P4-8ubuntu1.7]
+libblkid1/now 2.27.1-6ubuntu3.2 amd64 [installed,upgradable to: 2.27.1-6ubuntu3.3]
+libbsd0/xenial,now 0.8.2-1 amd64 [installed]
+libbz2-1.0/xenial,now 1.0.6-8 amd64 [installed]
+libc-bin/xenial-updates,xenial-security,now 2.23-0ubuntu9 amd64 [installed]
+libc6/xenial-updates,xenial-security,now 2.23-0ubuntu9 amd64 [installed]
+libcap-ng0/xenial,now 0.7.7-1 amd64 [installed]
+libcap2/xenial,now 1:2.24-12 amd64 [installed]
+libcap2-bin/xenial,now 1:2.24-12 amd64 [installed]
+libcomerr2/xenial,now 1.42.13-1ubuntu1 amd64 [installed]
+libcryptsetup4/xenial,now 2:1.6.6-5ubuntu2 amd64 [installed]
+libcurl3-gnutls/xenial-updates,xenial-security,now 7.47.0-1ubuntu2.2 amd64 [installed]
+libdb5.3/xenial,now 5.3.28-11 amd64 [installed]
+libdbus-1-3/xenial-updates,now 1.10.6-1ubuntu3.3 amd64 [installed]
+libdbus-glib-1-2/xenial,now 0.106-1 amd64 [installed]
+libdebconfclient0/xenial,now 0.198ubuntu1 amd64 [installed]
+libdevmapper-event1.02.1/xenial,now 2:1.02.110-1ubuntu10 amd64 [installed]
+libdevmapper1.02.1/xenial,now 2:1.02.110-1ubuntu10 amd64 [installed]
+libdns-export162/now 1:9.10.3.dfsg.P4-8ubuntu1.6 amd64 [installed,upgradable to: 1:9.10.3.dfsg.P4-8ubuntu1.7]
+libdns162/now 1:9.10.3.dfsg.P4-8ubuntu1.6 amd64 [installed,upgradable to: 1:9.10.3.dfsg.P4-8ubuntu1.7]
+libdrm2/xenial-updates,now 2.4.70-1~ubuntu16.04.1 amd64 [installed]
+libdumbnet1/xenial,now 1.12-7 amd64 [installed]
+libeatmydata1/xenial,now 105-3 amd64 [installed]
+libedit2/xenial,now 3.1-20150325-1ubuntu2 amd64 [installed]
+libelf1/xenial,now 0.165-3ubuntu1 amd64 [installed]
+liberror-perl/xenial,now 0.17-1.2 all [installed]
+libestr0/xenial,now 0.1.10-1 amd64 [installed]
+libevent-2.0-5/xenial-updates,xenial-security,now 2.0.21-stable-2ubuntu0.16.04.1 amd64 [installed]
+libexpat1/xenial-updates,xenial-security,now 2.1.0-7ubuntu0.16.04.2 amd64 [installed]
+libfdisk1/now 2.27.1-6ubuntu3.2 amd64 [installed,upgradable to: 2.27.1-6ubuntu3.3]
+libffi6/xenial,now 3.2.1-4 amd64 [installed]
+libfreetype6/xenial-updates,xenial-security,now 2.6.1-0.1ubuntu2.3 amd64 [installed,automatic]
+libfribidi0/xenial,now 0.19.7-1 amd64 [installed]
+libfuse2/xenial-updates,now 2.9.4-1ubuntu3.1 amd64 [installed]
+libgcc1/xenial,now 1:6.0.1-0ubuntu1 amd64 [installed]
+libgcrypt20/now 1.6.5-2ubuntu0.2 amd64 [installed,upgradable to: 1.6.5-2ubuntu0.3]
+libgdbm3/xenial,now 1.8.3-13.1 amd64 [installed]
+libgeoip1/xenial,now 1.6.9-1 amd64 [installed]
+libgirepository-1.0-1/xenial,now 1.46.0-3ubuntu1 amd64 [installed]
+libglib2.0-0/xenial-updates,now 2.48.2-0ubuntu1 amd64 [installed]
+libglib2.0-data/xenial-updates,now 2.48.2-0ubuntu1 all [installed]
+libgmp10/xenial,now 2:6.1.0+dfsg-2 amd64 [installed]
+libgnutls-openssl27/xenial-updates,xenial-security,now 3.4.10-4ubuntu1.3 amd64 [installed]
+libgnutls30/xenial-updates,xenial-security,now 3.4.10-4ubuntu1.3 amd64 [installed]
+libgpg-error0/xenial,now 1.21-2ubuntu1 amd64 [installed]
+libgpm2/xenial,now 1.20.4-6.1 amd64 [installed]
+libgssapi-krb5-2/xenial-updates,now 1.13.2+dfsg-5ubuntu2 amd64 [installed]
+libgssapi3-heimdal/xenial,now 1.7~git20150920+dfsg-4ubuntu1 amd64 [installed]
+libhcrypto4-heimdal/xenial,now 1.7~git20150920+dfsg-4ubuntu1 amd64 [installed]
+libheimbase1-heimdal/xenial,now 1.7~git20150920+dfsg-4ubuntu1 amd64 [installed]
+libheimntlm0-heimdal/xenial,now 1.7~git20150920+dfsg-4ubuntu1 amd64 [installed]
+libhogweed4/xenial-updates,xenial-security,now 3.2-1ubuntu0.16.04.1 amd64 [installed]
+libhx509-5-heimdal/xenial,now 1.7~git20150920+dfsg-4ubuntu1 amd64 [installed]
+libicu55/xenial-updates,xenial-security,now 55.1-7ubuntu0.2 amd64 [installed]
+libidn11/xenial-updates,xenial-security,now 1.32-3ubuntu1.1 amd64 [installed]
+libisc-export160/now 1:9.10.3.dfsg.P4-8ubuntu1.6 amd64 [installed,upgradable to: 1:9.10.3.dfsg.P4-8ubuntu1.7]
+libisc160/now 1:9.10.3.dfsg.P4-8ubuntu1.6 amd64 [installed,upgradable to: 1:9.10.3.dfsg.P4-8ubuntu1.7]
+libisccc140/now 1:9.10.3.dfsg.P4-8ubuntu1.6 amd64 [installed,upgradable to: 1:9.10.3.dfsg.P4-8ubuntu1.7]
+libisccfg140/now 1:9.10.3.dfsg.P4-8ubuntu1.6 amd64 [installed,upgradable to: 1:9.10.3.dfsg.P4-8ubuntu1.7]
+libjson-c2/xenial,now 0.11-4ubuntu2 amd64 [installed]
+libk5crypto3/xenial-updates,now 1.13.2+dfsg-5ubuntu2 amd64 [installed]
+libkeyutils1/xenial,now 1.5.9-8ubuntu1 amd64 [installed]
+libklibc/xenial-updates,now 2.0.4-8ubuntu1.16.04.3 amd64 [installed]
+libkmod2/xenial,now 22-1ubuntu4 amd64 [installed]
+libkrb5-26-heimdal/xenial,now 1.7~git20150920+dfsg-4ubuntu1 amd64 [installed]
+libkrb5-3/xenial-updates,now 1.13.2+dfsg-5ubuntu2 amd64 [installed]
+libkrb5support0/xenial-updates,now 1.13.2+dfsg-5ubuntu2 amd64 [installed]
+libldap-2.4-2/xenial-updates,xenial-security,now 2.4.42+dfsg-2ubuntu3.2 amd64 [installed]
+liblocale-gettext-perl/xenial,now 1.07-1build1 amd64 [installed]
+liblvm2app2.2/xenial,now 2.02.133-1ubuntu10 amd64 [installed]
+liblvm2cmd2.02/xenial,now 2.02.133-1ubuntu10 amd64 [installed]
+liblwres141/now 1:9.10.3.dfsg.P4-8ubuntu1.6 amd64 [installed,upgradable to: 1:9.10.3.dfsg.P4-8ubuntu1.7]
+liblxc1/xenial-security,now 2.0.7-0ubuntu1~16.04.2 amd64 [installed,upgradable to: 2.0.8-0ubuntu1~16.04.2]
+liblz4-1/xenial,now 0.0~r131-2ubuntu2 amd64 [installed]
+liblzma5/xenial,now 5.1.1alpha+20120614-2ubuntu2 amd64 [installed]
+liblzo2-2/xenial,now 2.08-1.2 amd64 [installed]
+libmagic1/xenial,now 1:5.25-2ubuntu1 amd64 [installed]
+libmnl0/xenial,now 1.0.3-5 amd64 [installed]
+libmount1/now 2.27.1-6ubuntu3.2 amd64 [installed,upgradable to: 2.27.1-6ubuntu3.3]
+libmpdec2/xenial,now 2.4.2-1 amd64 [installed]
+libmpfr4/xenial,now 3.1.4-1 amd64 [installed]
+libmspack0/xenial,now 0.5-1 amd64 [installed]
+libncurses5/xenial,now 6.0+20160213-1ubuntu1 amd64 [installed]
+libncursesw5/xenial,now 6.0+20160213-1ubuntu1 amd64 [installed]
+libnetfilter-conntrack3/xenial,now 1.0.5-1 amd64 [installed]
+libnettle6/xenial-updates,xenial-security,now 3.2-1ubuntu0.16.04.1 amd64 [installed]
+libnewt0.52/xenial,now 0.52.18-1ubuntu2 amd64 [installed]
+libnfnetlink0/xenial,now 1.0.1-3 amd64 [installed]
+libnih1/xenial,now 1.0.3-4.3ubuntu1 amd64 [installed]
+libnuma1/xenial,now 2.0.11-1ubuntu1 amd64 [installed]
+libp11-kit0/xenial-updates,now 0.23.2-5~ubuntu16.04.1 amd64 [installed]
+libpam-modules/xenial,now 1.1.8-3.2ubuntu2 amd64 [installed]
+libpam-modules-bin/xenial,now 1.1.8-3.2ubuntu2 amd64 [installed]
+libpam-runtime/xenial,now 1.1.8-3.2ubuntu2 all [installed]
+libpam-systemd/xenial-updates,now 229-4ubuntu17 amd64 [installed]
+libpam0g/xenial,now 1.1.8-3.2ubuntu2 amd64 [installed]
+libparted2/xenial,now 3.2-15 amd64 [installed]
+libpcap0.8/xenial,now 1.7.4-2 amd64 [installed]
+libpci3/xenial-updates,now 1:3.3.1-1.1ubuntu1.1 amd64 [installed]
+libpcre3/xenial,now 2:8.38-3.1 amd64 [installed]
+libperl5.22/xenial,now 5.22.1-9 amd64 [installed]
+libpipeline1/xenial,now 1.4.1-2 amd64 [installed]
+libplymouth4/xenial-updates,now 0.9.2-3ubuntu13.1 amd64 [installed]
+libpng12-0/xenial,now 1.2.54-1ubuntu1 amd64 [installed]
+libpolkit-agent-1-0/xenial,now 0.105-14.1 amd64 [installed]
+libpolkit-backend-1-0/xenial,now 0.105-14.1 amd64 [installed]
+libpolkit-gobject-1-0/xenial,now 0.105-14.1 amd64 [installed]
+libpopt0/xenial,now 1.16-10 amd64 [installed]
+libprocps4/xenial-updates,now 2:3.3.10-4ubuntu2.3 amd64 [installed]
+libpython3-stdlib/xenial,now 3.5.1-3 amd64 [installed]
+libpython3.5/xenial-updates,xenial-security,now 3.5.2-2ubuntu0~16.04.1 amd64 [installed,automatic]
+libpython3.5-minimal/xenial-updates,xenial-security,now 3.5.2-2ubuntu0~16.04.1 amd64 [installed]
+libpython3.5-stdlib/xenial-updates,xenial-security,now 3.5.2-2ubuntu0~16.04.1 amd64 [installed]
+libreadline5/xenial,now 5.2+dfsg-3build1 amd64 [installed]
+libreadline6/xenial,now 6.3-8ubuntu2 amd64 [installed]
+libroken18-heimdal/xenial,now 1.7~git20150920+dfsg-4ubuntu1 amd64 [installed]
+librtmp1/xenial-updates,xenial-security,now 2.4+20151223.gitfa8646d-1ubuntu0.1 amd64 [installed]
+libsasl2-2/xenial,now 2.1.26.dfsg1-14build1 amd64 [installed]
+libsasl2-modules/xenial,now 2.1.26.dfsg1-14build1 amd64 [installed]
+libsasl2-modules-db/xenial,now 2.1.26.dfsg1-14build1 amd64 [installed]
+libseccomp2/xenial,now 2.2.3-3ubuntu3 amd64 [installed]
+libselinux1/xenial,now 2.4-3build2 amd64 [installed]
+libsemanage-common/xenial,now 2.3-1build3 all [installed]
+libsemanage1/xenial,now 2.3-1build3 amd64 [installed]
+libsepol1/xenial,now 2.4-2 amd64 [installed]
+libsigsegv2/xenial,now 2.10-4 amd64 [installed]
+libslang2/xenial,now 2.3.0-2ubuntu1 amd64 [installed]
+libsmartcols1/now 2.27.1-6ubuntu3.2 amd64 [installed,upgradable to: 2.27.1-6ubuntu3.3]
+libsqlite3-0/xenial,now 3.11.0-1ubuntu1 amd64 [installed]
+libss2/xenial,now 1.42.13-1ubuntu1 amd64 [installed]
+libssl1.0.0/xenial-updates,now 1.0.2g-1ubuntu4.8 amd64 [installed]
+libstdc++6/xenial-updates,xenial-security,now 5.4.0-6ubuntu1~16.04.4 amd64 [installed]
+libsystemd0/xenial-updates,now 229-4ubuntu17 amd64 [installed]
+libtasn1-6/xenial-updates,xenial-security,now 4.7-3ubuntu0.16.04.2 amd64 [installed]
+libtext-charwidth-perl/xenial,now 0.04-7build5 amd64 [installed]
+libtext-iconv-perl/xenial,now 1.7-5build4 amd64 [installed]
+libtext-wrapi18n-perl/xenial,now 0.06-7.1 all [installed]
+libtinfo5/xenial,now 6.0+20160213-1ubuntu1 amd64 [installed]
+libudev1/xenial-updates,now 229-4ubuntu17 amd64 [installed]
+libusb-0.1-4/xenial,now 2:0.1.12-28 amd64 [installed]
+libusb-1.0-0/xenial,now 2:1.0.20-1 amd64 [installed]
+libustr-1.0-1/xenial,now 1.0.4-5 amd64 [installed]
+libutempter0/xenial,now 1.1.6-3 amd64 [installed]
+libuuid1/now 2.27.1-6ubuntu3.2 amd64 [installed,upgradable to: 2.27.1-6ubuntu3.3]
+libwind0-heimdal/xenial,now 1.7~git20150920+dfsg-4ubuntu1 amd64 [installed]
+libwrap0/xenial,now 7.6.q-25 amd64 [installed]
+libx11-6/xenial,now 2:1.6.3-1ubuntu2 amd64 [installed]
+libx11-data/xenial,now 2:1.6.3-1ubuntu2 all [installed]
+libxau6/xenial,now 1:1.0.8-1 amd64 [installed]
+libxcb1/xenial,now 1.11.1-1ubuntu1 amd64 [installed]
+libxdmcp6/xenial,now 1:1.1.2-1.1 amd64 [installed]
+libxext6/xenial,now 2:1.3.3-1 amd64 [installed]
+libxml2/xenial-updates,xenial-security,now 2.9.3+dfsg1-1ubuntu0.2 amd64 [installed]
+libxmuu1/xenial,now 2:1.1.2-2 amd64 [installed]
+libxtables11/xenial,now 1.6.0-2ubuntu3 amd64 [installed]
+libyaml-0-2/xenial,now 0.1.6-3 amd64 [installed]
+linux-aws/now 4.4.0.1020.23 amd64 [installed,upgradable to: 4.4.0.1022.25]
+linux-aws-headers-4.4.0-1020/xenial-updates,xenial-security,now 4.4.0-1020.29 all [installed,automatic]
+linux-base/xenial,now 4.0ubuntu1 all [installed]
+linux-headers-4.4.0-1020-aws/xenial-updates,xenial-security,now 4.4.0-1020.29 amd64 [installed,automatic]
+linux-headers-aws/now 4.4.0.1020.23 amd64 [installed,upgradable to: 4.4.0.1022.25]
+linux-image-4.4.0-1020-aws/xenial-updates,xenial-security,now 4.4.0-1020.29 amd64 [installed,automatic]
+linux-image-aws/now 4.4.0.1020.23 amd64 [installed,upgradable to: 4.4.0.1022.25]
+locales/xenial-updates,xenial-security,now 2.23-0ubuntu9 all [installed]
+login/xenial-updates,xenial-security,now 1:4.2-3.1ubuntu5.3 amd64 [installed]
+logrotate/xenial-updates,now 3.8.7-2ubuntu2.16.04.1 amd64 [installed]
+lsb-base/xenial-updates,now 9.20160110ubuntu0.2 all [installed]
+lsb-release/xenial-updates,now 9.20160110ubuntu0.2 all [installed]
+lshw/xenial-updates,now 02.17-1.1ubuntu3.2 amd64 [installed]
+lsof/xenial,now 4.89+dfsg-0.1 amd64 [installed]
+ltrace/xenial,now 0.7.3-5.1ubuntu4 amd64 [installed]
+lvm2/xenial,now 2.02.133-1ubuntu10 amd64 [installed]
+lxc-common/xenial-security,now 2.0.7-0ubuntu1~16.04.2 amd64 [installed,upgradable to: 2.0.8-0ubuntu1~16.04.2]
+lxcfs/xenial-updates,now 2.0.7-0ubuntu1~16.04.1 amd64 [installed]
+lxd/now 2.0.9-0ubuntu1~16.04.2 amd64 [installed,upgradable to: 2.0.10-0ubuntu1~16.04.1]
+lxd-client/now 2.0.9-0ubuntu1~16.04.2 amd64 [installed,upgradable to: 2.0.10-0ubuntu1~16.04.1]
+makedev/xenial-updates,now 2.3.1-93ubuntu2~ubuntu16.04.1 all [installed]
+man-db/xenial,now 2.7.5-1 amd64 [installed]
+manpages/xenial,now 4.04-2 all [installed]
+mawk/xenial,now 1.3.3-17ubuntu2 amd64 [installed]
+mdadm/xenial-updates,now 3.3-2ubuntu7.2 amd64 [installed]
+mime-support/xenial,now 3.59ubuntu1 all [installed]
+mlocate/xenial,now 0.26-1ubuntu2 amd64 [installed]
+mount/now 2.27.1-6ubuntu3.2 amd64 [installed,upgradable to: 2.27.1-6ubuntu3.3]
+mtr-tiny/xenial-updates,now 0.86-1ubuntu0.1 amd64 [installed]
+multiarch-support/xenial-updates,xenial-security,now 2.23-0ubuntu9 amd64 [installed]
+nano/xenial-updates,now 2.5.3-2ubuntu2 amd64 [installed]
+ncurses-base/xenial,now 6.0+20160213-1ubuntu1 all [installed]
+ncurses-bin/xenial,now 6.0+20160213-1ubuntu1 amd64 [installed]
+ncurses-term/xenial,now 6.0+20160213-1ubuntu1 all [installed]
+net-tools/xenial,now 1.60-26ubuntu1 amd64 [installed]
+netbase/xenial,now 5.3 all [installed]
+netcat-openbsd/xenial,now 1.105-7ubuntu1 amd64 [installed]
+ntfs-3g/xenial-updates,xenial-security,now 1:2015.3.14AR.1-1ubuntu0.1 amd64 [installed]
+open-iscsi/xenial-updates,now 2.0.873+git0.3b4b4500-14ubuntu3.3 amd64 [installed]
+open-vm-tools/xenial-updates,now 2:10.0.7-3227872-5ubuntu1~16.04.1 amd64 [installed]
+openssh-client/xenial-updates,now 1:7.2p2-4ubuntu2.2 amd64 [installed]
+openssh-server/xenial-updates,now 1:7.2p2-4ubuntu2.2 amd64 [installed]
+openssh-sftp-server/xenial-updates,now 1:7.2p2-4ubuntu2.2 amd64 [installed]
+openssl/xenial-updates,now 1.0.2g-1ubuntu4.8 amd64 [installed]
+os-prober/xenial-updates,now 1.70ubuntu3.3 amd64 [installed,automatic]
+overlayroot/xenial-updates,now 0.27ubuntu1.4 all [installed]
+parted/xenial,now 3.2-15 amd64 [installed]
+passwd/xenial-updates,xenial-security,now 1:4.2-3.1ubuntu5.3 amd64 [installed]
+pastebinit/xenial,now 1.5-1 all [installed]
+patch/xenial,now 2.7.5-1 amd64 [installed]
+pciutils/xenial-updates,now 1:3.3.1-1.1ubuntu1.1 amd64 [installed]
+perl/xenial,now 5.22.1-9 amd64 [installed]
+perl-base/xenial,now 5.22.1-9 amd64 [installed]
+perl-modules-5.22/xenial,now 5.22.1-9 all [installed]
+plymouth/xenial-updates,now 0.9.2-3ubuntu13.1 amd64 [installed]
+plymouth-theme-ubuntu-text/xenial-updates,now 0.9.2-3ubuntu13.1 amd64 [installed]
+policykit-1/xenial,now 0.105-14.1 amd64 [installed]
+pollinate/xenial-updates,now 4.23-0ubuntu1~16.04.1 all [installed]
+popularity-contest/xenial,now 1.64ubuntu2 all [installed]
+powermgmt-base/xenial,now 1.31+nmu1 all [installed]
+procps/xenial-updates,now 2:3.3.10-4ubuntu2.3 amd64 [installed]
+psmisc/xenial,now 22.21-2.1build1 amd64 [installed]
+python-apt-common/xenial,now 1.1.0~beta1build1 all [installed]
+python3/xenial,now 3.5.1-3 amd64 [installed]
+python3-apport/xenial-updates,now 2.20.1-0ubuntu2.6 all [installed]
+python3-apt/xenial,now 1.1.0~beta1build1 amd64 [installed]
+python3-blinker/xenial,now 1.3.dfsg2-1build1 all [installed]
+python3-cffi-backend/xenial,now 1.5.2-1ubuntu1 amd64 [installed]
+python3-chardet/xenial,now 2.3.0-2 all [installed]
+python3-commandnotfound/xenial-updates,now 0.3ubuntu16.04.2 all [installed]
+python3-configobj/xenial,now 5.0.6-2 all [installed]
+python3-cryptography/xenial-updates,xenial-security,now 1.2.3-1ubuntu0.1 amd64 [installed]
+python3-dbus/xenial,now 1.2.0-3 amd64 [installed]
+python3-debian/xenial,now 0.1.27ubuntu2 all [installed]
+python3-distupgrade/xenial-updates,now 1:16.04.21 all [installed]
+python3-gdbm/xenial,now 3.5.1-1 amd64 [installed]
+python3-gi/xenial,now 3.20.0-0ubuntu1 amd64 [installed]
+python3-idna/xenial,now 2.0-3 all [installed]
+python3-jinja2/xenial,now 2.8-1 all [installed]
+python3-json-pointer/xenial,now 1.9-3 all [installed]
+python3-jsonpatch/xenial,now 1.19-3 all [installed]
+python3-jwt/xenial,now 1.3.0-1 all [installed]
+python3-markupsafe/xenial,now 0.23-2build2 amd64 [installed]
+python3-minimal/xenial,now 3.5.1-3 amd64 [installed]
+python3-newt/xenial,now 0.52.18-1ubuntu2 amd64 [installed]
+python3-oauthlib/xenial,now 1.0.3-1 all [installed]
+python3-pkg-resources/xenial,now 20.7.0-1 all [installed]
+python3-prettytable/xenial,now 0.7.2-3 all [installed]
+python3-problem-report/xenial-updates,now 2.20.1-0ubuntu2.6 all [installed]
+python3-pyasn1/xenial,now 0.1.9-1 all [installed]
+python3-pycurl/xenial,now 7.43.0-1ubuntu1 amd64 [installed]
+python3-requests/xenial,now 2.9.1-3 all [installed]
+python3-serial/xenial,now 3.0.1-1 all [installed]
+python3-six/xenial,now 1.10.0-3 all [installed]
+python3-software-properties/xenial-updates,now 0.96.20.7 all [installed]
+python3-systemd/xenial,now 231-2build1 amd64 [installed]
+python3-update-manager/xenial-updates,now 1:16.04.6 all [installed]
+python3-urllib3/xenial-updates,now 1.13.1-2ubuntu0.16.04.1 all [installed]
+python3-yaml/xenial,now 3.11-3build1 amd64 [installed]
+python3.5/xenial-updates,xenial-security,now 3.5.2-2ubuntu0~16.04.1 amd64 [installed]
+python3.5-minimal/xenial-updates,xenial-security,now 3.5.2-2ubuntu0~16.04.1 amd64 [installed]
+readline-common/xenial,now 6.3-8ubuntu2 all [installed]
+rename/xenial,now 0.20-4 all [installed]
+resolvconf/xenial-updates,now 1.78ubuntu4 all [installed]
+rsync/xenial,now 3.1.1-3ubuntu1 amd64 [installed]
+rsyslog/xenial,now 8.16.0-1ubuntu3 amd64 [installed]
+run-one/xenial,now 1.17-0ubuntu1 all [installed]
+screen/xenial,now 4.3.1-2build1 amd64 [installed]
+sed/xenial,now 4.2.2-7 amd64 [installed]
+sensible-utils/xenial,now 0.0.9 all [installed]
+sgml-base/xenial,now 1.26+nmu4ubuntu1 all [installed]
+shared-mime-info/xenial-updates,now 1.5-2ubuntu0.1 amd64 [installed]
+snapd/xenial-updates,now 2.25 amd64 [installed]
+software-properties-common/xenial-updates,now 0.96.20.7 all [installed]
+sosreport/xenial-updates,now 3.4-1~ubuntu16.04.1 amd64 [installed]
+squashfs-tools/xenial,now 1:4.3-3ubuntu2 amd64 [installed]
+ssh-import-id/xenial,now 5.5-0ubuntu1 all [installed]
+strace/xenial,now 4.11-1ubuntu3 amd64 [installed]
+sudo/xenial-updates,xenial-security,now 1.8.16-0ubuntu1.4 amd64 [installed]
+systemd/xenial-updates,now 229-4ubuntu17 amd64 [installed]
+systemd-sysv/xenial-updates,now 229-4ubuntu17 amd64 [installed]
+sysv-rc/xenial,now 2.88dsf-59.3ubuntu2 all [installed]
+sysvinit-utils/xenial,now 2.88dsf-59.3ubuntu2 amd64 [installed]
+tar/xenial-updates,xenial-security,now 1.28-2.1ubuntu0.1 amd64 [installed]
+tcpd/xenial,now 7.6.q-25 amd64 [installed]
+tcpdump/xenial-updates,xenial-security,now 4.9.0-1ubuntu1~ubuntu16.04.1 amd64 [installed]
+telnet/xenial,now 0.17-40 amd64 [installed]
+time/xenial,now 1.7-25.1 amd64 [installed]
+tmux/xenial,now 2.1-3build1 amd64 [installed]
+tzdata/xenial-updates,xenial-security,now 2016j-0ubuntu0.16.04 all [installed]
+ubuntu-cloudimage-keyring/xenial,now 2013.11.11 all [installed]
+ubuntu-core-launcher/xenial-updates,now 2.25 amd64 [installed]
+ubuntu-keyring/xenial,now 2012.05.19 all [installed]
+ubuntu-minimal/xenial,now 1.361 amd64 [installed]
+ubuntu-release-upgrader-core/xenial-updates,now 1:16.04.21 all [installed]
+ubuntu-server/xenial,now 1.361 amd64 [installed]
+ubuntu-standard/xenial,now 1.361 amd64 [installed]
+ucf/xenial,now 3.0036 all [installed]
+udev/xenial-updates,now 229-4ubuntu17 amd64 [installed]
+ufw/xenial,now 0.35-0ubuntu2 all [installed]
+uidmap/xenial-updates,xenial-security,now 1:4.2-3.1ubuntu5.3 amd64 [installed]
+unattended-upgrades/xenial-updates,now 0.90ubuntu0.6 all [installed]
+update-manager-core/xenial-updates,now 1:16.04.6 all [installed]
+update-notifier-common/xenial-updates,now 3.168.4 all [installed]
+ureadahead/xenial,now 0.100.0-19 amd64 [installed]
+usbutils/xenial,now 1:007-4 amd64 [installed]
+util-linux/now 2.27.1-6ubuntu3.2 amd64 [installed,upgradable to: 2.27.1-6ubuntu3.3]
+uuid-runtime/now 2.27.1-6ubuntu3.2 amd64 [installed,upgradable to: 2.27.1-6ubuntu3.3]
+vim/xenial-updates,xenial-security,now 2:7.4.1689-3ubuntu1.2 amd64 [installed]
+vim-common/xenial-updates,xenial-security,now 2:7.4.1689-3ubuntu1.2 amd64 [installed]
+vim-runtime/xenial-updates,xenial-security,now 2:7.4.1689-3ubuntu1.2 all [installed]
+vim-tiny/xenial-updates,xenial-security,now 2:7.4.1689-3ubuntu1.2 amd64 [installed]
+vlan/xenial-updates,now 1.9-3.2ubuntu1.16.04.3 amd64 [installed]
+wget/xenial-updates,now 1.17.1-1ubuntu1.2 amd64 [installed]
+whiptail/xenial,now 0.52.18-1ubuntu2 amd64 [installed]
+xauth/xenial,now 1:1.0.9-1ubuntu2 amd64 [installed]
+xdg-user-dirs/xenial,now 0.15-2ubuntu6 amd64 [installed]
+xfsprogs/xenial,now 4.3.0+nmu1ubuntu1 amd64 [installed]
+xkb-data/xenial,now 2.16-1ubuntu1 all [installed]
+xml-core/xenial,now 0.13+nmu2 all [installed]
+xz-utils/xenial,now 5.1.1alpha+20120614-2ubuntu2 amd64 [installed]
+zerofree/xenial,now 1.0.3-1 amd64 [installed]
+zlib1g/xenial-updates,now 1:1.2.8.dfsg-2ubuntu4.1 amd64 [installed]
+
+10)
+ubuntu@ip-10-0-6-17:~$ sudo apt-get update
+Hit:1 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:3 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]              
+Get:4 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial/main Sources [868 kB]                                
+Get:5 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial/restricted Sources [4,808 B]                      
+Get:6 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial/universe Sources [7,728 kB]       
+Get:7 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]                              
+Get:8 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial/multiverse Sources [179 kB]                              
+Get:9 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-updates/main Sources [257 kB]                         
+Get:10 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-updates/restricted Sources [3,000 B]                 
+Get:11 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe Sources [163 kB]                 
+Get:12 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-updates/multiverse Sources [5,668 B]                 
+Get:13 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [572 kB]              
+Get:14 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-updates/main Translation-en [231 kB]                  
+Get:15 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [492 kB]                    
+Get:16 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe Translation-en [195 kB]              
+Get:17 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-backports/main Sources [3,308 B]                             
+Get:18 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-backports/universe Sources [4,384 B]
+Get:19 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [5,804 B]
+Get:20 http://us-west-2.ec2.archive.ubuntu.com/ubuntu xenial-backports/universe Translation-en [3,004 B]
+Get:21 http://security.ubuntu.com/ubuntu xenial-security/main Sources [77.8 kB]
+Get:22 http://security.ubuntu.com/ubuntu xenial-security/restricted Sources [2,604 B]
+Get:23 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [35.0 kB]
+Get:24 http://security.ubuntu.com/ubuntu xenial-security/multiverse Sources [1,144 B]
+Get:25 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [297 kB]
+Get:26 http://security.ubuntu.com/ubuntu xenial-security/main Translation-en [127 kB]
+Get:27 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [140 kB]
+Get:28 http://security.ubuntu.com/ubuntu xenial-security/universe Translation-en [72.8 kB]
+
+
+
+
+
+
+
+
