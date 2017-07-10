@@ -1,5 +1,5 @@
 #1 Private IP: 10.0.6.22
-#2 Go to the EC2 Console. Select the target instance and IPv4 Public IP is the second item in the right column.
+#2 Go to the EC2 Console. Select the target instance and IPv4 Public IP is the second item in the right column.I have also associated the instances with urls. Now anyone can enter $ ping alphabet13.naookiesato.com to get this instances public ip.
 #3 Provide the output of a command showing how much disk space one of your instances has.
 echo "df"
 echo "df -h"
