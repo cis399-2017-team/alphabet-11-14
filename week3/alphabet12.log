@@ -1,0 +1,55 @@
+Script started on Mon 17 Jul 2017 09:43:47 PM UTC
+]0;ubuntu@ip-10-0-6-17: ~/alphabet-11-14/week3[01;32mubuntu@ip-10-0-6-17[00m:[01;34m~/alphabet-11-14/week3[00m$ ls
+alphabet11.log  alphabet13fulltest.log  tests.log
+alphabet12.log  alphabet13.log          [0m[01;32mtests.sh[0m
+]0;ubuntu@ip-10-0-6-17: ~/alphabet-11-14/week3[01;32mubuntu@ip-10-0-6-17[00m:[01;34m~/alphabet-11-14/week3[00m$ ./tests.sh
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 1%Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  puppetmaster-common ruby-activemodel ruby-activerecord
+  ruby-activerecord-deprecated-finders ruby-activesupport ruby-arel
+  ruby-atomic ruby-blankslate ruby-builder ruby-i18n ruby-thread-safe
+  ruby-tzinfo
+Use 'sudo apt autoremove' to remove them.
+The following packages will be REMOVED:
+  ssh*
+0 upgraded, 0 newly installed, 1 to remove and 22 not upgraded.
+After this operation, 99.3 kB disk space will be freed.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 81111 files and directories currently installed.)
+Removing ssh (1:7.2p2-4ubuntu2.2) ...
+Purging configuration files for ssh (1:7.2p2-4ubuntu2.2) ...
+[0;32mInfo: Retrieving pluginfacts[0m
+[0;32mInfo: Retrieving plugin[0m
+[0;32mInfo: Caching catalog for ip-10-0-6-17.us-west-2.compute.internal[0m
+[0;32mInfo: Applying configuration version '1500058503'[0m
+[mNotice: /Stage[main]/Sshd/Package[ssh]/ensure: ensure changed 'purged' to 'present'[0m
+[mNotice: Finished catalog run in 1.58 seconds[0m
+[0;32mInfo: Retrieving pluginfacts[0m
+[0;32mInfo: Retrieving plugin[0m
+[0;32mInfo: Caching catalog for ip-10-0-6-17.us-west-2.compute.internal[0m
+[0;32mInfo: Applying configuration version '1500058503'[0m
+[mNotice: /Stage[main]/Sshd/Service[ssh]/ensure: ensure changed 'stopped' to 'running'[0m
+[0;32mInfo: /Stage[main]/Sshd/Service[ssh]: Unscheduling refresh on Service[ssh][0m
+[mNotice: Finished catalog run in 0.09 seconds[0m
+[0;32mInfo: Retrieving pluginfacts[0m
+[0;32mInfo: Retrieving plugin[0m
+[0;32mInfo: Caching catalog for ip-10-0-6-17.us-west-2.compute.internal[0m
+[0;32mInfo: Applying configuration version '1500058503'[0m
+[mNotice: /Stage[main]/Sshd/File[/etc/ssh/sshd_config]/ensure: defined content as '{md5}aee92b4ae26c3aac82dd7a309abaa1eb'[0m
+[0;32mInfo: /Stage[main]/Sshd/File[/etc/ssh/sshd_config]: Scheduling refresh of Service[ssh][0m
+[mNotice: /Stage[main]/Sshd/Service[ssh]: Triggered 'refresh' from 1 events[0m
+[mNotice: Finished catalog run in 0.13 seconds[0m
+[0;32mInfo: Retrieving pluginfacts[0m
+[0;32mInfo: Retrieving plugin[0m
+[0;32mInfo: Caching catalog for ip-10-0-6-17.us-west-2.compute.internal[0m
+[0;32mInfo: Applying configuration version '1500058503'[0m
+[mNotice: /Stage[main]/Sshd/Ssh_authorized_key[mheb-kp]/ensure: created[0m
+[mNotice: /Stage[main]/Sshd/Ssh_authorized_key[loganr]/ensure: created[0m
+[mNotice: /Stage[main]/Sshd/Ssh_authorized_key[nsato-pi]/ensure: created[0m
+[mNotice: /Stage[main]/Sshd/Ssh_authorized_key[nsato10]/ensure: created[0m
+[mNotice: Finished catalog run in 0.06 seconds[0m
+]0;ubuntu@ip-10-0-6-17: ~/alphabet-11-14/week3[01;32mubuntu@ip-10-0-6-17[00m:[01;34m~/alphabet-11-14/week3[00m$ exit
+exit
+
+Script done on Mon 17 Jul 2017 09:44:15 PM UTC
