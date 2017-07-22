@@ -4,6 +4,7 @@ alphabet12.naookiesato.com OR ec2-35-164-220-179.us-west-2.compute.amazonaws.com
 alphabet13.naookiesato.com OR ec2-35-162-13-179.us-west-2.compute.amazonaws.com
 
 2.
+see sample.log
 
 3.
 alphabet-11-14.naookiesato.com OR alphabet-11-14-1082450040.us-west-2.elb.amazonaws.com
@@ -16,6 +17,7 @@ When one is active, all traffic is routed to the single instance, otherwise it i
 Restoring instances causes a brief wati until the next health check for the load balancer to route traffic to instances running apache.
 
 5.
+see sample.log
 
 6.
 I made a directory pupppet:///modules/apache2/html/ and set recurse true associating it with /var/www/html/, replicating the same index.html across all agents.
