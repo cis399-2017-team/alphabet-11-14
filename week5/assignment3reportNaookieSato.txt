@@ -1,0 +1,38 @@
+Instances with a accounts I was able to log into:
+
+Team:
+    Ninjaz:
+        52.89.86.155    [ok
+        34.212.42.80    [ok
+        34.211.130.200  [denied
+    Binary Boiz:
+        52.27.48.226    [denied
+        35.161.107.254  [denied
+        35.160.253.168  [denied
+    Fork Bomb:
+        34.210.229.207  [denied
+        34.210.59.21    [login ok - need to use /bin/bash
+        34.210.161.107  [login ok - need to use /bin/bash
+        52.36.94.3      [denied
+        34.212.155.136  [login ok - need to use /bin/bash
+    Hot Shame:
+        34.212.218.18   [ok
+        35.164.154.53   [ok
+        35.162.107.173  [ok
+    Segmentation Squad:
+        35.161.210.61   [denied - asks for password
+        35.167.7.66     [denied - asks for password
+        52.35.159.146   [denied - asks for password
+    alphabet[11:14]:
+        52.41.11.58     [ok
+        35.164.220.179  [ok
+        35.162.13.179   [ok
+    Hideous Snakes:
+        35.166.125.131  [denied
+        34.208.231.112  [denied
+        54.70.181.182   [denied
+    The Fighting Mongooses:
+        34.212.41.75    [denied
+        35.164.218.151  [ok
+        34.211.216.177  [ok
+
