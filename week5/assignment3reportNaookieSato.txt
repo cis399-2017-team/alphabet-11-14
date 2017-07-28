@@ -1,14 +1,14 @@
-Instances with a accounts I was able to log into:
+A full summary of all team instances, and the login behaviour when I ssh into them:
 
 Team:
-    Ninjaz:
+    Ninjas:
         52.89.86.155    [ok
         34.212.42.80    [ok
-        34.211.130.200  [denied
+        34.211.130.200  [denied, probably master
     Binary Boiz:
-        52.27.48.226    [denied
-        35.161.107.254  [denied
-        35.160.253.168  [denied
+        52.27.48.226    [denied, publickey
+        35.161.107.254  [denied, publickey
+        35.160.253.168  [denied, publickey
     Fork Bomb:
         34.210.229.207  [denied
         34.210.59.21    [login ok - need to use /bin/bash
@@ -32,7 +32,8 @@ Team:
         34.208.231.112  [denied
         54.70.181.182   [denied
     The Fighting Mongooses:
-        34.212.41.75    [denied
+        34.212.41.75    [denied, probably master
         35.164.218.151  [ok
         34.211.216.177  [ok
 
+-Naookie Sato
