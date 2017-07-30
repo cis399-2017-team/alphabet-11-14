@@ -20,8 +20,8 @@ Team:
         35.164.154.53   [ok
         35.162.107.173  [ok
     Segmentation Squad:
-        35.161.210.61   [denied - asks for password
-        35.167.7.66     [denied - asks for password
+        35.161.210.61   [ok - username nsato
+        35.167.7.66     [ok - username nsato
         52.35.159.146   [denied - asks for password
     alphabet[11:14]:
         52.41.11.58     [ok
