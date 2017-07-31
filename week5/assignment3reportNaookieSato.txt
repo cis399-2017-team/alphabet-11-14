@@ -11,10 +11,10 @@ Team:
         35.160.253.168  [denied
     Fork Bomb:
         34.210.229.207  [denied
-        34.210.59.21    [ok - need to use /bin/bash
-        34.210.161.107  [ok - need to use /bin/bash
+        34.210.59.21    [ok
+        34.210.161.107  [ok
         52.36.94.3      [denied
-        34.212.155.136  [ok - need to use /bin/bash
+        34.212.155.136  [ok
     Hot Shame:
         34.212.218.18   [ok
         35.164.154.53   [ok
