@@ -1,0 +1,63 @@
+people who have logged in to our instances:
+cnf      FB
+jsheabia       FM
+levishutts     -BB
+dholstege       FM
+cplachno     -BB
+jemin       FM
+houllette     HSh
+nboyd      HSn
+slynch      SS
+aziz94shh     -BB
+stevep       N
+menif       N
+pogrebinsky      FB
+nsato10
+mister_person     
+junck        ????
+mitchm     SS
+stevev      PR
+coletc     HSn
+Vino       FB
+
+people who haven't:
+kaelas      HSn
+jdolan      HSh
+jeremy003     SS
+
+11:
+Jul 27 16:54:47 ip-10-0-6-128 systemd-logind[1090]: New session 1844 of user cnf.
+Jul 27 18:11:53 ip-10-0-6-128 systemd-logind[1090]: New session 1862 of user jsheabia.
+Jul 27 22:31:29 ip-10-0-6-128 systemd-logind[1090]: New session 1921 of user mister_person.
+Jul 27 23:01:44 ip-10-0-6-128 systemd-logind[1090]: New session 1928 of user jsheabia.
+Jul 28 21:35:25 ip-10-0-6-128 systemd-logind[1090]: New session 2230 of user jsheabia.
+Jul 28 22:21:00 ip-10-0-6-128 systemd-logind[1090]: New session 2242 of user levishutts.
+Jul 28 22:22:40 ip-10-0-6-128 systemd-logind[1090]: New session 2243 of user dholstege.
+Jul 28 22:47:49 ip-10-0-6-128 systemd-logind[1090]: New session 2249 of user cplachno.
+Jul 30 02:39:08 ip-10-0-6-128 systemd-logind[1090]: New session 2626 of user jemin.
+Jul 30 17:02:20 ip-10-0-6-128 systemd-logind[1090]: New session 2819 of user houllette.
+Jul 30 20:12:07 ip-10-0-6-128 systemd-logind[1090]: New session 2861 of user nboyd.
+Jul 30 21:07:44 ip-10-0-6-128 systemd-logind[1090]: New session 2874 of user slynch.
+Jul 30 21:19:25 ip-10-0-6-128 systemd-logind[1090]: New session 2878 of user aziz94shh.
+Jul 30 23:22:07 ip-10-0-6-128 systemd-logind[1090]: New session 2910 of user stevep.
+Jul 31 03:35:31 ip-10-0-6-128 systemd-logind[1090]: New session 2972 of user menif.
+Jul 31 03:46:49 ip-10-0-6-128 systemd-logind[1090]: New session 2975 of user nsato10.
+Jul 31 04:09:04 ip-10-0-6-128 systemd-logind[1090]: New session 2981 of user pogrebinsky.
+Jul 31 15:27:49 ip-10-0-6-128 systemd-logind[1090]: New session 3136 of user mitchm.
+Jul 31 17:19:28 ip-10-0-6-128 systemd-logind[1090]: New session 3162 of user mitchm.
+Jul 31 20:39:37 ip-10-0-6-128 systemd-logind[1090]: New session 3208 of user stevev.
+Jul 31 21:09:46 ip-10-0-6-128 systemd-logind[1090]: New session 3216 of user coletc.
+Jul 31 22:01:40 ip-10-0-6-128 systemd-logind[1090]: New session 3234 of user Vino.
+
+12:
+Jul 27 16:55:17 ip-10-0-6-17 systemd-logind[1129]: New session 1850 of user cnf.
+Jul 27 20:19:13 ip-10-0-6-17 systemd-logind[1129]: New session 1895 of user mister_person.
+Jul 28 21:35:57 ip-10-0-6-17 systemd-logind[1129]: New session 2233 of user jsheabia.
+Jul 28 22:23:01 ip-10-0-6-17 systemd-logind[1129]: New session 2244 of user dholstege.
+Jul 30 02:41:36 ip-10-0-6-17 systemd-logind[1129]: New session 2623 of user jemin.
+Jul 30 20:10:17 ip-10-0-6-17 systemd-logind[1129]: New session 2858 of user slynch.
+Jul 30 21:09:46 ip-10-0-6-17 systemd-logind[1129]: New session 2871 of user slynch.
+Jul 31 03:16:55 ip-10-0-6-17 systemd-logind[1129]: New session 2960 of user junck.
+Jul 31 03:47:27 ip-10-0-6-17 systemd-logind[1129]: New session 2968 of user nsato10.
+Jul 31 04:13:33 ip-10-0-6-17 systemd-logind[1129]: New session 2975 of user pogrebinsky.
+Jul 31 20:39:45 ip-10-0-6-17 systemd-logind[1129]: New session 3203 of user stevev.
