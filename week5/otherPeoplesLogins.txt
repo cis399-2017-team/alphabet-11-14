@@ -19,9 +19,9 @@ mitchm     SS
 stevev      PR
 coletc     HSn
 Vino       FB
+kaelas      HSn
 
 people who haven't:
-kaelas      HSn
 jdolan      HSh
 jeremy003     SS
 
@@ -61,3 +61,4 @@ Jul 31 03:16:55 ip-10-0-6-17 systemd-logind[1129]: New session 2960 of user junc
 Jul 31 03:47:27 ip-10-0-6-17 systemd-logind[1129]: New session 2968 of user nsato10.
 Jul 31 04:13:33 ip-10-0-6-17 systemd-logind[1129]: New session 2975 of user pogrebinsky.
 Jul 31 20:39:45 ip-10-0-6-17 systemd-logind[1129]: New session 3203 of user stevev.
+Jul 31 22:40:53 ip-10-0-6-17 systemd-logind[1129]: New session 3236 of user kaelas.
