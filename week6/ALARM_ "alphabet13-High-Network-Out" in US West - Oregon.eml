@@ -1,0 +1,96 @@
+Return-Path: <0101015d9f2c461e-85b1193d-f5b9-4ea0-aab0-755d3e7c5b66-000000@us-west-2.amazonses.com>
+X-Spam-Checker-Version: SpamAssassin 3.4.1 (2015-04-28) on mail.cs.uoregon.edu
+X-Spam-Level: 
+X-Spam-Status: No, score=-0.2 required=5.0 tests=BAYES_50,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,RCVD_IN_DNSWL_NONE,RCVD_IN_JMF_WHITE,
+	RCVD_IN_MSPIKE_H5,RCVD_IN_MSPIKE_WL,RP_MATCHES_RCVD,SPF_PASS shortcircuit=no
+	autolearn=disabled version=3.4.1
+X-Spam-Report: 
+	* -0.0 RCVD_IN_JMF_WHITE RBL: Sender listed in JMF-WHITE
+	*      [54.240.27.84 listed in hostkarma.junkemailfilter.com]
+	* -0.0 RCVD_IN_DNSWL_NONE RBL: Sender listed at http://www.dnswl.org/, no
+	*      trust
+	*      [54.240.27.84 listed in list.dnswl.org]
+	* -0.0 SPF_PASS SPF: sender matches SPF record
+	* -1.0 RCVD_IN_MSPIKE_H5 RBL: Excellent reputation (+5)
+	*      [54.240.27.84 listed in wl.mailspike.net]
+	* -0.0 RP_MATCHES_RCVD Envelope sender domain matches handover relay domain
+	*  0.0 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+	*      domains are different
+	*  0.8 BAYES_50 BODY: Bayes spam probability is 40 to 60%
+	*      [score: 0.5320]
+	* -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+	*  0.1 DKIM_SIGNED Message has a DKIM or DK signature, not necessarily
+	*      valid
+	* -0.0 RCVD_IN_MSPIKE_WL Mailspike good senders
+X-Original-To: nsato@cs.uoregon.edu
+Delivered-To: nsato@cs.uoregon.edu
+Received: from a27-84.smtp-out.us-west-2.amazonses.com (a27-84.smtp-out.us-west-2.amazonses.com [54.240.27.84])
+	(using TLSv1 with cipher ECDHE-RSA-AES128-SHA (128/128 bits))
+	(No client certificate requested)
+	by mail.cs.uoregon.edu (Postfix) with ESMTPS id D1E134C1131
+	for <nsato@cs.uoregon.edu>; Tue,  1 Aug 2017 12:01:06 -0700 (PDT)
+Authentication-Results: mail.cs.uoregon.edu;
+	dkim=pass (1024-bit key; unprotected) header.d=amazonses.com header.i=@amazonses.com header.b=YpaOPUjA;
+	dkim-atps=neutral
+Authentication-Results: mail.cs.uoregon.edu; dmarc=none header.from=sns.amazonaws.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1501614066;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=lekr8qFQGl50zUvzDpa6FrMu6JWKtPVYINYskRBI3vg=;
+	b=YpaOPUjAaxNx6Ksjk1kbll8wFrr1yzEVCToKDTlQ0nRxNt1gqk3TozABmK22h2J3
+	CkVXG5zbYQ2vgJ+wpfH08RwN9E0luA3b69bkVPzaFG/olJtrMx0Zckh4NRlcUiCbWqh
+	EusCiUL85arySPBIC1LXDoBG9iGKKL2n3Hlvc0x4=
+Date: Tue, 1 Aug 2017 19:01:05 +0000
+From: AWS Notifications <no-reply@sns.amazonaws.com>
+To: nsato@cs.uoregon.edu
+Message-ID: <0101015d9f2c461e-85b1193d-f5b9-4ea0-aab0-755d3e7c5b66-000000@us-west-2.amazonses.com>
+Subject: ALARM: "alphabet13-High-Network-Out" in US West - Oregon
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+x-amz-sns-message-id: a1a94f39-b354-50d2-be6c-1ec361652fc1
+x-amz-sns-subscription-arn: arn:aws:sns:us-west-2:006170570170:alphabet-11-14:fc430a0c-68a8-429c-9151-f01cce36eedc
+X-SES-Outgoing: 2017.08.01-54.240.27.84
+Feedback-ID: 1.us-west-2.c55J8LO2Yl1R0Ht+ysI6VjzUH6Cvo3dHPF80AUVC/G8=:AmazonSES
+X-Greylist: Sender passed SPF test, not delayed by milter-greylist-4.5.11 (mail.cs.uoregon.edu [0.0.0.0]); Tue, 01 Aug 2017 12:01:06 -0700 (PDT)
+X-Scanned-By: MIMEDefang 2.78 on 128.223.4.18
+
+You are receiving this email because your Amazon CloudWatch Alarm "alphabet13-High-Network-Out" in the US West - Oregon region has entered the ALARM state, because "Threshold Crossed: 1 datapoint [2.78313719E8 (01/08/17 18:46:00)] was greater than or equal to the threshold (2.62144E7)." at "Tuesday 01 August, 2017 19:01:05 UTC".
+
+View this alarm in the AWS Management Console:
+https://console.aws.amazon.com/cloudwatch/home?region=us-west-2#s=Alarms&alarm=alphabet13-High-Network-Out
+
+Alarm Details:
+- Name:                       alphabet13-High-Network-Out
+- Description:                Created from EC2 Console
+- State Change:               OK -> ALARM
+- Reason for State Change:    Threshold Crossed: 1 datapoint [2.78313719E8 (01/08/17 18:46:00)] was greater than or equal to the threshold (2.62144E7).
+- Timestamp:                  Tuesday 01 August, 2017 19:01:05 UTC
+- AWS Account:                006170570170
+
+Threshold:
+- The alarm is in the ALARM state when the metric is GreaterThanOrEqualToThreshold 2.62144E7 for 900 seconds. 
+
+Monitored Metric:
+- MetricNamespace:                     AWS/EC2
+- MetricName:                          NetworkOut
+- Dimensions:                          [InstanceId = i-0c29695312c8615c2]
+- Period:                              900 seconds
+- Statistic:                           Sum
+- Unit:                                not specified
+
+
+
+State Change Actions:
+- OK: 
+- ALARM: [arn:aws:sns:us-west-2:006170570170:alphabet-11-14]
+- INSUFFICIENT_DATA: 
+
+
+--
+If you wish to stop receiving notifications from this topic, please click or visit the link below to unsubscribe:
+https://sns.us-west-2.amazonaws.com/unsubscribe.html?SubscriptionArn=arn:aws:sns:us-west-2:006170570170:alphabet-11-14:fc430a0c-68a8-429c-9151-f01cce36eedc&Endpoint=nsato@cs.uoregon.edu
+
+Please do not reply directly to this email. If you have any questions or comments regarding this email, please contact us at https://aws.amazon.com/support
+
