@@ -5,7 +5,9 @@ import java.util.*;
 
 public class ChatServer {
     public ChatServer( int port) throws IOException {
-        ServerSocket server = new ServerSocket(port);
+        ServerSocket server = new ServerSocket();
+        server.bind(new InetSocketAddress("10.0.6.22", port));
+        System.out.println("server socket created, inet address: " + server.getInetAddress());
         while (true) {
             Socket client = server.accept();
             System.out.println("Accepted from " + client.getInetAddress());
