@@ -8,13 +8,11 @@ public class AlphabetChatThread extends Thread {
     protected static Vector<AlphabetChatThread> threads = new Vector<AlphabetChatThread>();
     protected DataInputStream i;
     protected DataOutputStream o;
-    protected String pub_ip;
 
-    public AlphabetChatThread(String pub_ip, Socket s) throws IOException {
+    public AlphabetChatThread(Socket s) throws IOException {
         this.s = s;
         this.i = new DataInputStream(new BufferedInputStream(s.getInputStream()));
         this.o = new DataOutputStream(new BufferedOutputStream(s.getOutputStream()));
-        this.pub_ip = pub_ip;
     }
 
     @Override
@@ -44,7 +42,7 @@ public class AlphabetChatThread extends Thread {
                 AlphabetChatThread t = en.nextElement();
                 try {
                     synchronized (t.o) {
-                        t.o.writeUTF(t.pub_ip + message);
+                        t.o.writeUTF(message);
                     }
                     t.o.flush();
                 } catch (IOException e) {

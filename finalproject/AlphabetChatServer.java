@@ -15,7 +15,7 @@ public class AlphabetChatServer {
         while (true) {
             Socket client = server.accept();
             System.out.println("Accepted from " + client.getInetAddress());
-            AlphabetChatThread c = new AlphabetChatThread(client.getInetAddress().toString(), client);
+            AlphabetChatThread c = new AlphabetChatThread(client);
             c.start();
         }
     }

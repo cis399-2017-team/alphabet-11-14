@@ -2,6 +2,7 @@ import java.net.*;
 import java.io.*;
 import java.awt.*;
 import java.util.Scanner;
+import java.util.Random;
 
 public class AlphabetChatClient implements Runnable {
 
@@ -11,12 +12,16 @@ public class AlphabetChatClient implements Runnable {
     protected DataInputStream i;
     protected DataOutputStream o;
     protected Thread listener;
+    protected String name;
 
     public AlphabetChatClient(InputStream i, OutputStream o) {
         this.i = new DataInputStream( new BufferedInputStream(i) );
         this.o = new DataOutputStream( new BufferedOutputStream(o) );
         listener = new Thread(this); //create a thread this way, or have ChatClient extent Thread
         listener.start();
+
+        Random ugen = new Random();
+        this.name = "user"+Integer.toString(ugen.nextInt());
     }
 
     @Override
@@ -40,7 +45,7 @@ public class AlphabetChatClient implements Runnable {
 
     public void sendMessage(String message) {
         try {
-            o.writeUTF(message);
+            o.writeUTF(name + ": " + message);
             o.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,7 +73,7 @@ public class AlphabetChatClient implements Runnable {
                     System.out.println("Empty message");
                 }
             }
-            client.sendMessage(s.getLocalAddress() + ": " + m);
+            client.sendMessage(m);
         }
     }
 }
