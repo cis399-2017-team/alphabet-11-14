@@ -44,7 +44,7 @@ public class AlphabetChatThread extends Thread {
                 AlphabetChatThread t = en.nextElement();
                 try {
                     synchronized (t.o) {
-                        t.o.writeUTF(t.pub_ip + "/" + message);
+                        t.o.writeUTF(t.pub_ip + message);
                     }
                     t.o.flush();
                 } catch (IOException e) {
