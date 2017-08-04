@@ -53,7 +53,7 @@ public class ChatClient implements Runnable {
         System.out.println("new socket created, connected to " + s.getInetAddress().toString());
         ChatClient client = new ChatClient(s.getInputStream(), s.getOutputStream());
 
-        System.out.println("new client created, connected to " + s.getInetAddress().toString());
+        System.out.println("new client created, connected at " + s.getLocalAddress().toString());
 
         Scanner sc = new Scanner(System.in);
         String m = "";
