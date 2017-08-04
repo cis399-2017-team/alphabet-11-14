@@ -4,9 +4,9 @@ import java.awt.*;
 import java.util.*;
 
 public class ChatServer {
-    public ChatServer( int port) throws IOException {
+    public ChatServer(String ip, int port) throws IOException {
         ServerSocket server = new ServerSocket();
-        server.bind(new InetSocketAddress("10.0.6.22", port));
+        server.bind(new InetSocketAddress(ip, port));
         System.out.println("server socket created, inet address: " + server.getInetAddress());
         while (true) {
             Socket client = server.accept();
@@ -17,8 +17,8 @@ public class ChatServer {
     }
 
     public static void main(String args[]) throws IOException {
-        if (args.length != 1)
-            throw new RuntimeException("Improper arguments");
-        new ChatServer(Integer.parseInt(args[0]));
+        if (args.length != 2)
+            throw new RuntimeException("Improper arguments: <server> <port>");
+        new ChatServer(args[0], Integer.parseInt(args[1]));
     }
 }

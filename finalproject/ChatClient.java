@@ -49,7 +49,7 @@ public class ChatClient implements Runnable {
         if (args.length != 2)
             throw new RuntimeException("Improper arguments");
         Socket s = new Socket();
-        s.bind(new InetSocketAddress(args[0], Integer.parseInt(args[1])));
+        s.connect(new InetSocketAddress(args[0], Integer.parseInt(args[1])));
         System.out.println("new socket created, connected to " + s.getInetAddress().toString());
         ChatClient client = new ChatClient(s.getInputStream(), s.getOutputStream());
 
