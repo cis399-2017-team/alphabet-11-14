@@ -5,7 +5,7 @@ import java.util.*;
 
 public class AlphabetChatServer {
 
-    public static String server_host = "alphabet13.naookiesato.com";
+    public static String server_host = "10.0.6.22";
     public static int server_port = 10000;
 
     public AlphabetChatServer(String ip, int port) throws IOException {
@@ -15,7 +15,7 @@ public class AlphabetChatServer {
         while (true) {
             Socket client = server.accept();
             System.out.println("Accepted from " + client.getInetAddress());
-            AlphabetChatThread c = new AlphabetChatThread(client);
+            AlphabetChatThread c = new AlphabetChatThread(client.getInetAddress().toString(), client);
             c.start();
         }
     }
