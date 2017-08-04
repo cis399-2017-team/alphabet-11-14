@@ -21,7 +21,7 @@ public class AlphabetChatClient implements Runnable {
         listener.start();
 
         Random ugen = new Random();
-        this.name = "user"+Integer.toString(ugen.nextInt());
+        this.name = "user"+Integer.toString(ugen.nextInt(100000)+1);
     }
 
     @Override
