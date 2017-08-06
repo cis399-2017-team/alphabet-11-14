@@ -1,11 +1,11 @@
 #ifndef CHAT_CLIENT_HPP
 #define CHAT_CLIENT_HPP
 
-#include <>
+#include <sys/socket.h>
 
 class chat_client {
 public:
-    chat_client();
+    chat_client(std::string server, int port);
     ~chat_client();
 private:
     void *listen(void *);
