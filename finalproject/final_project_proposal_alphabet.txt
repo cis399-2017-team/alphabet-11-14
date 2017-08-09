@@ -1,23 +1,34 @@
 alphabet[11:14] final project proposal
 
 Goals:
-    Throughout assignment 4 the most challenging aspect we had encountered was team communication, not within ourselves but bewteen groups. For this reason team alphabet has decided to create a java-based, command line chat system to connect members from any amazon aws instance, or any terminal with the jvm. 
-    The main goals of this project will be to establish a server capable of transmitting public messages from any given client to every other client. Beyond that, we would like to implement separate chat rooms for every team's subnet. Finally, we would like to encrypt the messages in some way.
-    This would obviously be tested by installing and communicating between many different computers on many different networks.
+
+    Throughout assignment 4 the most challenging aspect we had encountered was team communication, not within ourselves but bewteen groups. For this reason team Alphabet has decided to create a java-based, command line chat system to connect members from any amazon aws instance, or any terminal with the jvm. Using this application a team member can install the chat client on their home machine, connect to their team's AWS instance, and send messages to any other client connected to the server at that time. The common use case would be if a team (or teams) decided to communicate during a certain time period. They could all install this chat client on their machine and broadcast and receive messages from all other members on the network. They could also decide to broadcast messaages to their immediate subnet (aka their team's AWS instance group). 
+
+    To summarize, the main goals of this project will be to implement a client-server system capable of transmitting public messages from any given client to every other client. Clients using this system will be able to decide whether to broadcast their message to all connected clients, or to their direct subnet. Additionally, we will encrypt the messages in some way to prevent man in the middle attacks from intercepting messages easily.
+
+    We can test this system in a couple of ways. The first will be to ensure that various client spread across different subnets can send and receive messages. Also, we will test the sending and receiving of messages to the client's direct subnet. We will need to test to ensure buffer overflow errors do not occur, connectivity issues with dropped clients are handled, and the server can handle a normal number of connected clients.
 
 Issues and Effects:
+
     The main effect that this project is supposed to have is connectivity. The program was firstly designed with a centralized server in mind. By not allowing users to have access to the server code, we limit the possible connectivity of any given user to other users who are also able to connect to my master server. This program could not be used over a local network, for example. Public internet access is a requirement. I could also see a user wanting an option to log or same messages. I purposefully left this feature out, as I like my privacy. If any user really wishes to save the messages, they can run script.
 
 Security Issues:
-    Being a messaging service, we would like to encrypt and decrypt all traffic on the client side. Another security issue is the possible vulnerability of having another port publicly accessable on the server machine. Note: The security group had to be modified, I hope that is fine.
+
+    Being a messaging service, we would like to encrypt and decrypt all traffic on the client side. This means that the host server will not have access to the decrypted data being passed through. Because we do not save this in any way, we can be confident that in the case of a compromised server the client's messages will not be easily accessed. In order for the system to become compromised an attacker would need access each client's machine for any messages they wish to intercept. Another security issue is the possible vulnerability of having another port publicly accessable on the server machine. Note: The security group had to be modified, I hope that is fine.
 
 Work needed:
-    First and foremost, the java implementation must be done. This is mostly complete, we just need to add features. This program juns in the jvm, so installation of the of the default-jre package is required to run. Eventually a puppet module should be created to automate the installation of testing and especially development environment on team-run instances. \     A note about java installation:
+
+    First and foremost, the java implementation must be done. This is mostly complete, we just need to add features. More specifically, we need to implement encryption and decryption capability, as well as the option for a client to send a message only to thier direct subnet. This program juns in the jvm, so installation of the of the default-jre package is required to run. Eventually a puppet module should be created to automate the installation of testing and especially development environment on team-run instances.     
+    
+    A note about java installation:
         $ sudo apt-get install default-jre or default-jdk 
             can fail without
         $ sudo apt-get update && sudo apt-get upgrade
 
 Documentation:
+
+    We will provide an installation guide, as well as a configuration guide for developers to use if they wish to implement the system on their own set of AWS instances. This will allow them the ability to setup their own server as the host broadcast device. Code will be commented sufficiently for future developers to understand and elaborate on. For maintenance, we will document any dependancies and components that may need to be looked at over time to ensure an effecient system. Due to the simplicity of the system architecture this section should be small.
+
     To use, one should obtain a copy of the compiled AlphabetChatClient.class from a team member. From that point, type:
         $ java AlphabetChatClient
     This will connect you, type messages and press enter to send.
