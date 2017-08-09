@@ -16,3 +16,8 @@ Work needed:
         $ sudo apt-get install default-jre or default-jdk 
             can fail without
         $ sudo apt-get update && sudo apt-get upgrade
+
+Documentation:
+    To use, one should obtain a copy of the compiled AlphabetChatClient.class from a team member. From that point, type:
+        $ java AlphabetChatClient
+    This will connect you, type messages and press enter to send.
