@@ -2,33 +2,37 @@ alphabet[11:14] final project proposal
 
 Goals:
 
-    Throughout assignment 4 the most challenging aspect we had encountered was team communication, not within ourselves but bewteen groups. For this reason team Alphabet has decided to create a java-based, command line chat system to connect members from any amazon aws instance, or any terminal with the jvm. Using this application a team member can install the chat client on their home machine, connect to their team's AWS instance, and send messages to any other client connected to the server at that time. The common use case would be if a team (or teams) decided to communicate during a certain time period. They could all install this chat client on their machine and broadcast and receive messages from all other members on the network. They could also decide to broadcast messaages to their immediate subnet (aka their team's AWS instance group). 
+    Throughout assignment 4 the most challenging aspect we had encountered was team communication, not within ourselves but bewteen groups. For this reason team Alphabet has decided to install and manage an IRC (Internet Relay Chat) Server on one of our instances. Using this application a team member can install an IRC client on their home machine, AWS instance, or any other system and send messages to any other client connected to our server at that time. The common use case would be if a team (or teams) decided to communicate during a certain time period. They could all install this chat client on their machine and broadcast and receive messages from all other members on the network. They could also decide to broadcast messaages to their immediate subnet (aka their team's AWS instance group). 
 
-    To summarize, the main goals of this project will be to implement a client-server system capable of transmitting public messages from any given client to every other client. Clients using this system will be able to decide whether to broadcast their message to all connected clients, or to their direct subnet. Additionally, we will encrypt the messages in some way to prevent man in the middle attacks from intercepting messages easily.
+    To summarize, the main goals of this project will be to implement a client-server system capable of transmitting public messages from any given client to every other client. Clients using this system will also hopefully be able to send message to private chat rooms. This is application feature dependant. Additionally, we will look into the encrption and security of the IRC server/client we choose to utilize.
 
     We can test this system in a couple of ways. The first will be to ensure that various client spread across different subnets can send and receive messages. Also, we will test the sending and receiving of messages to the client's direct subnet. We will need to test to ensure buffer overflow errors do not occur, connectivity issues with dropped clients are handled, and the server can handle a normal number of connected clients.
 
 Issues and Effects:
 
-    The main effect that this project is supposed to have is connectivity. The program was firstly designed with a centralized server in mind. By not allowing users to have access to the server code, we limit the possible connectivity of any given user to other users who are also able to connect to my master server. This program could not be used over a local network, for example. Public internet access is a requirement. I could also see a user wanting an option to log or same messages. I purposefully left this feature out, as I like my privacy. If any user really wishes to save the messages, they can run script.
+    The main effect that this project is supposed to have is connectivity. The program was firstly designed with a centralized server in mind. For this reason, any client wishing to use our AWS server must have public internet connectivity. Even when sending messages to another client on the same private subnet, all traffic must be routed out then back in.
+    One issue we can forsee is the lack of a standard IRC client software. Because many can be used to connect to the same server, users could encounter confusion, then looking to the administrators for configuration instructions for a client they have never used before.
 
 Security Issues:
 
-    Being a messaging service, we would like to encrypt and decrypt all traffic on the client side. This means that the host server will not have access to the decrypted data being passed through. Because we do not save this in any way, we can be confident that in the case of a compromised server the client's messages will not be easily accessed. In order for the system to become compromised an attacker would need access each client's machine for any messages they wish to intercept. Another security issue is the possible vulnerability of having another port publicly accessable on the server machine. Note: The security group had to be modified, I hope that is fine.
+    Because we are using a third party IRC server, the security issues are that of that application, compounded with any vulnerabilities found in each respective client's software. We would like to be able to encrypt the messages. Another security issue is the possible vulnerability of having another port publicly accessable on the server machine. Note: I created a new security group.
+    Also, we should investigate the anonymity of clients connected to the server. 
+"""
+FOR MATT
+"""
 
 Work needed:
+    First an IRC server must be installed on the delegated server machine. This could be automated with a puppet module with added support to keep the server running. Then every client which wishes to connect must install and configure an IRC client of their choice. As I mentioned earlier, the server must ensure that its port is available for incoming connections. For our AWS instance this means opening port 6667 for IRC on alphabet[11].
 
-    First and foremost, the java implementation must be done. This is mostly complete, we just need to add features. More specifically, we need to implement encryption and decryption capability, as well as the option for a client to send a message only to thier direct subnet. This program juns in the jvm, so installation of the of the default-jre package is required to run. Eventually a puppet module should be created to automate the installation of testing and especially development environment on team-run instances.     
-    
-    A note about java installation:
-        $ sudo apt-get install default-jre or default-jdk 
-            can fail without
-        $ sudo apt-get update && sudo apt-get upgrade
+"""
+FOR LOGAN
+"""
 
 Documentation:
 
-    We will provide an installation guide, as well as a configuration guide for developers to use if they wish to implement the system on their own set of AWS instances. This will allow them the ability to setup their own server as the host broadcast device. Code will be commented sufficiently for future developers to understand and elaborate on. For maintenance, we will document any dependancies and components that may need to be looked at over time to ensure an effecient system. Due to the simplicity of the system architecture this section should be small.
+"""
+FOR LOGAN
 
-    To use, one should obtain a copy of the compiled AlphabetChatClient.class from a team member. From that point, type:
-        $ java AlphabetChatClient
-    This will connect you, type messages and press enter to send.
+""""
+FOR MATT
+"""""
