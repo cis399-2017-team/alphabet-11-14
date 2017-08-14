@@ -17,22 +17,36 @@ Security Issues:
 
     Because we are using a third party IRC server, the security issues are that of that application, compounded with any vulnerabilities found in each respective client's software. We would like to be able to encrypt the messages. Another security issue is the possible vulnerability of having another port publicly accessable on the server machine. Note: I created a new security group.
     Also, we should investigate the anonymity of clients connected to the server. 
-"""
+
 FOR MATT
-"""
 
 Work needed:
     First an IRC server must be installed on the delegated server machine. This could be automated with a puppet module with added support to keep the server running. Then every client which wishes to connect must install and configure an IRC client of their choice. As I mentioned earlier, the server must ensure that its port is available for incoming connections. For our AWS instance this means opening port 6667 for IRC on alphabet[11].
 
-"""
 FOR LOGAN
-"""
 
 Documentation:
 
-"""
+FOR MATT
+
+How to connect to a client:
+
+    Note: type "/" in weechat to enter a command, eg "/command"
+
+    With the weechat client on command line:
+    1. launch the command
+        $ weechat
+    2. add the team alphabet server:
+        /server add alphabet irc.naookiesato.com
+    3. connect to the team server
+        /connect alphabet
+    4. join the preconfigured chat room 
+        /join #chat
+    5. type messages and hit enter to send
+    6. to quit:
+        /quit
+
+How to create a server:
+
 FOR LOGAN
 
-""""
-FOR MATT
-"""""
