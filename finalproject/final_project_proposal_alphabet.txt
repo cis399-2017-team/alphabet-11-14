@@ -48,5 +48,18 @@ How to connect to a client:
 
 How to create a server:
 
-FOR LOGAN
+install inspircd with "sudo apt get inspircd"
+edit config file at /etc/inspircd/inspircd.conf:
+change names and passwords for your server
+type "sudo service inspircd start"
+
+to make a chatroom:
+connect with an irc client
+pick a room name
+type "/join #[room name]"
+if the chatroom doesn't exist it will be created.
+
+to login as op to the irc:
+type "/oper [username] [password]" with the
+username and password from the config file.
 
