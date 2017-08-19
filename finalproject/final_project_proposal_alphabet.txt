@@ -29,9 +29,6 @@ Security of WeeChat:
 
     As of April 27, 2017 it was discovered that our IRC server WeeChat is vulnerable to buffer overflows, allowing malicious users to cause a denial-of-service attack by sending a "specially crafted filename via DCC". (https://www.debian.org/security/2017/dsa-3836). The best practice we can suggest to prevent this is to ensure all users on system are authenticated and given access only once reviewed and allowed. This issue was patched in versions 1.7.7. All versions previous are vulnerable. Make sure to keep updated to maintain security.
 
-
-FOR LOGAN
-
 Documentation:
 
 note: this documentation is also on http://irc.naookiesato.com
