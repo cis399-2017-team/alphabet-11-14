@@ -20,59 +20,11 @@ System Requirements:
 	You can find the WeeChat docs at this link:
 	https://weechat.org/files/doc/stable/weechat_user.en.html
 
-Security of WeeChat:
+Security of inspircd:
 
     Because we are using a third party IRC server, the security issues are that of that application, compounded with any vulnerabilities found in each respective client's software. We would like to be able to encrypt the messages. Another security issue is the possible vulnerability of having another port publicly accessable on the server machine. Note: I created a new security group.
     Also, we should investigate the anonymity of clients connected to the server. 
 
     WeeChat allows for third party scripts to be used, which can be both good and bad. Good because this can allow users to encrypt their conversation using a library named Crypt. Bad, because (even unknowingly) users can create back doors and re-configure the system using malicious third party code. Best practices is to ensure that all users are educated as to what scripts have been verified as trusted.
 
-    As of April 27, 2017 it was discovered that our IRC server WeeChat is vulnerable to buffer overflows, allowing malicious users to cause a denial-of-service attack by sending a "specially crafted filename via DCC". (https://www.debian.org/security/2017/dsa-3836). The best practice we can suggest to prevent this is to ensure all users on system are authenticated and given access only once reviewed and allowed. This issue was patched in versions 1.7.7. All versions previous are vulnerable. Make sure to keep updated to maintain security.
-
-Documentation:
-
-note: this documentation is also on http://irc.naookiesato.com
-
-	How to connect to the irc server with weechat:
-
-	    Note: type "/" in weechat to enter a command, eg "/command"
-
-        Install weechat:
-        go to weechat.org and get it from the download page
-        or
-        install it with your system's package manager ("apt install weechat", "brew install weechat", etc)
-
-	    With the weechat client on command line:
-	    1. launch weechat
-		$ weechat
-	    2. add the team alphabet server and name it 'alphabet'
-		/server add alphabet irc.naookiesato.com
-	    3. connect to the server
-		/connect alphabet
-	    4. join the preconfigured chat room 
-		/join #chat
-	    5. type messages and hit enter to send
-        6. to leave the channel:
-        /part
-        7. to disconnect from the server:
-        /disconnect alphabet
-	    8. to quit weechat:
-		/quit
-
-How to create a server:
-
-install inspircd with "sudo apt get inspircd"
-edit config file at /etc/inspircd/inspircd.conf:
-change names and passwords for your server
-type "sudo service inspircd start"
-
-to make a chatroom:
-connect with an irc client
-pick a room name
-type "/join #[room name]"
-if the chatroom doesn't exist it will be created.
-
-to login as op to the irc:
-type "/oper [username] [password]" with the
-username and password from the config file.
-
+    As of April 27, 2017 it was discovered that the irc client WeeChat is vulnerable to buffer overflows, allowing malicious users to cause a denial-of-service attack by sending a "specially crafted filename via DCC". (https://www.debian.org/security/2017/dsa-3836). The best practice we can suggest to prevent this is to ensure all users on system are authenticated and given access only once reviewed and allowed. This issue was patched in versions 1.7.7. All versions previous are vulnerable. Make sure to keep updated to maintain security.

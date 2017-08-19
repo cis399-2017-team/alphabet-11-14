@@ -1,0 +1,46 @@
+We set up a server on one of our instances and verified that different clients could connect, create chatrooms, and chat with each other. 
+
+Here are instructions on how a user would connect using the weechat client:
+
+note: these instructions are also on http://irc.naookiesato.com where they can be easily accessed by users.
+
+	    Note: type "/" in weechat to enter a command, eg "/command"
+
+        Install weechat:
+        go to weechat.org and get it from the download page
+        or
+        install it with your system's package manager ("apt install weechat", "brew install weechat", etc)
+
+	    With the weechat client on command line:
+	    1. launch weechat
+		$ weechat
+	    2. add the team alphabet server and name it 'alphabet'
+		/server add alphabet irc.naookiesato.com
+	    3. connect to the server
+		/connect alphabet
+	    4. join the preconfigured chat room 
+		/join #chat
+	    5. type messages and hit enter to send
+        6. to leave the channel:
+        /part
+        7. to disconnect from the server:
+        /disconnect alphabet
+	    8. to quit weechat:
+		/quit
+
+        To make a chatroom:
+        connect with an irc client
+        pick a room name
+        type "/join #[room name]"
+        if the chatroom doesn't exist it will be created.
+
+        To register your nickname so it doesn't get taken:
+        type "/msg nickserv help" and follow the instructions.
+
+The entire installation and configuration process has been automated with puppet, which can be seen in the alphabet-11-14-puppet github. To maintain the project for the future, configuration might have to be adjusted as users' needs change and things might need to be updated when new versions come out. Also, if enough people were to use the service, we might need to get people to help moderate the chat.
+
+To login as op to the irc:
+type "/oper [username] [password]" with the
+username and password from the config file.
+
+
