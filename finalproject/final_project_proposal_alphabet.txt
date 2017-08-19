@@ -34,6 +34,8 @@ FOR LOGAN
 
 Documentation:
 
+note: this documentation is also on http://irc.naookiesato.com
+
 	How to connect to the irc server with weechat:
 
 	    Note: type "/" in weechat to enter a command, eg "/command"
